@@ -1,0 +1,151 @@
+{
+  "project_info": {
+    "project_number": "723771589852",
+    "firebase_url": "https://watch-man-57c2c.firebaseio.com",
+    "project_id": "watch-man-57c2c",
+    "storage_bucket": "watch-man-57c2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:723771589852:android:7920f3caeea5833be16019",
+        "android_client_info": {
+          "package_name": "com.flutterappfcm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "723771589852-7rl5638letuehfbvfjas7ajrqie76n9c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flutterappfcm",
+            "certificate_hash": "4a9aa881d65dcb94d3349718f6bfab65505ca083"
+          }
+        },
+        {
+          "client_id": "723771589852-tsahngs3ts80u6v8da1la0np1m90p2bv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsQoNF3IkVI2dZBNiab5tcKQ1q-PqkBk8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "723771589852-tsahngs3ts80u6v8da1la0np1m90p2bv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "723771589852-a7jpl3h3adj692noak0mckdhc1k930s8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.watchman.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:723771589852:android:af90f7fe5a2a92a8e16019",
+        "android_client_info": {
+          "package_name": "com.flyydemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "723771589852-b24udrc386nrcrb75vbljo0e64j1tn2e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flyydemo",
+            "certificate_hash": "7e62626ff68f54f9f2dd4e9aa90006edd8e26b1a"
+          }
+        },
+        {
+          "client_id": "723771589852-tsahngs3ts80u6v8da1la0np1m90p2bv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsQoNF3IkVI2dZBNiab5tcKQ1q-PqkBk8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "723771589852-tsahngs3ts80u6v8da1la0np1m90p2bv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "723771589852-a7jpl3h3adj692noak0mckdhc1k930s8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.watchman.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:723771589852:android:6b0aab778e91fee5",
+        "android_client_info": {
+          "package_name": "com.watchman.watchmanapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "723771589852-4ehr9jgtqvs5enpjgmpt0m62jpsdkjfs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.watchman.watchmanapplication",
+            "certificate_hash": "4a9aa881d65dcb94d3349718f6bfab65505ca083"
+          }
+        },
+        {
+          "client_id": "723771589852-vol0msvke9827qqnpob8kf0c1gt0ec4n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.watchman.watchmanapplication",
+            "certificate_hash": "3db9945ce7bb9515b691d4b1f8748427b3a718e3"
+          }
+        },
+        {
+          "client_id": "723771589852-tsahngs3ts80u6v8da1la0np1m90p2bv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsQoNF3IkVI2dZBNiab5tcKQ1q-PqkBk8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "723771589852-tsahngs3ts80u6v8da1la0np1m90p2bv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "723771589852-a7jpl3h3adj692noak0mckdhc1k930s8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.watchman.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
