@@ -181,6 +181,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
             callIntent.setData(Uri.parse(phone));
             startActivity(callIntent);
         });
+        
         String phone_number = tvPhoneNumber.getText().toString();
         title = findViewById(R.id.title);
 //        title.setText(upro_title);
