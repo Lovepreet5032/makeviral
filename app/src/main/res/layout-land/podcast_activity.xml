@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_screen_for_guest">
+
+    <RelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:background="@color/colorBackground">
+        <RelativeLayout
+            android:id="@+id/layout_back_to_guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true">
+
+            <ImageView
+                android:id="@+id/layout_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_keyboard_arrow_left_white_24dp"
+
+                />
+            <!--   <ImageView
+                   android:id="@+id/menu_icon_iv"
+                   android:layout_width="50dp"
+                   android:layout_height="wrap_content"
+                   android:gravity="center"
+                   android:padding="2.0dip"
+                   android:layout_alignParentRight="true"
+                   android:src="@drawable/ic_drawer_icon"
+                   />-->
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/Podcast"
+            android:textColor="@color/text_color_white"
+            android:textSize="20.0sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/textView_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/podcast_underreview"
+        android:gravity="center"
+        android:textColor="@color/text_color_common"
+        android:textSize="25.0sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

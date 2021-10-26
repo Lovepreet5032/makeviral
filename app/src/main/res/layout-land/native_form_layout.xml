@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+      android:background="@color/black">
+
+    <RelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:background="@color/toolbar_color">
+
+        <!-- <RelativeLayout
+             android:id="@+id/layout_back_to_guest"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true">
+
+             <de.hdodenhof.circleimageview.CircleImageView
+                 android:id="@+id/layout_logo"
+                 android:layout_width="60dp"
+                 android:layout_height="wrap_content"
+                 android:src="@drawable/blue"
+
+                 />-->
+        <RelativeLayout
+            android:id="@+id/layout_back_to_guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                android:id="@+id/back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_keyboard_arrow_left_white_24dp"
+
+                />
+
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/native_form"
+            android:textColor="@color/text_color_white"
+            android:textSize="20.0sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout_top">
+        </androidx.recyclerview.widget.RecyclerView>
+  <!--  <RelativeLayout
+        android:id="@+id/center_image_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+      android:layout_below="@+id/layout_top"
+        android:background="@color/blue">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+          &lt;!&ndash;  <TextView
+                android:id="@+id/select_form_tv"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dip"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/selectForm"
+                android:textSize="16sp" />&ndash;&gt;
+
+
+            <Spinner
+                android:id="@+id/spinnerCustom"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/custom_spinner_background"
+                 android:layout_below="@+id/select_form_tv"
+                android:spinnerMode="dropdown"  />
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_for_native_form"
+                android:layout_below="@+id/spinnerCustom"
+                android:hint="@string/name"
+                android:paddingLeft="15dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"></EditText>
+
+            <EditText
+                android:id="@+id/et_surname"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_for_native_form"
+                android:hint="@string/surname"
+                android:paddingLeft="15dp"
+                android:layout_below="@+id/et_name"
+                android:inputType="textEmailAddress"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"></EditText>
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_for_native_form"
+                android:layout_below="@+id/et_surname"
+                android:hint="@string/email"
+                android:paddingLeft="15dp"
+                android:inputType="textEmailAddress"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"></EditText>
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_for_native_form"
+                android:layout_below="@+id/et_email"
+                android:hint="@string/phone_number"
+                android:inputType="phone"
+                android:paddingLeft="15dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"></EditText>
+
+
+            <TextView
+                android:id="@+id/urlText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_phone"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="120dp"
+                android:text="@string/read_condition"
+                android:textColor="@color/text_color_white"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_below="@+id/CheckBoxResponse"
+                android:textColor="@color/text_color_white"
+                android:background="@color/btn_blue"
+                android:textAllCaps="false"
+                android:text="@string/submit"></Button>
+
+            <CheckBox
+                android:id="@+id/CheckBoxResponse"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy"
+                android:textColor="@color/text_color_white"
+                android:layout_alignBaseline="@+id/urlText"
+                android:layout_alignBottom="@+id/urlText"
+                android:layout_alignLeft="@+id/et_phone"
+                android:layout_alignStart="@+id/et_phone"></CheckBox>
+        </RelativeLayout>
+
+    </RelativeLayout>-->
+
+</RelativeLayout>

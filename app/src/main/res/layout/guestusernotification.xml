@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/appbar_padding_top"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <RelativeLayout
+            android:id="@+id/layout_top"
+            android:layout_width="match_parent"
+            android:layout_height="50.0dip"
+            android:background="@color/toolbar_color">
+            <RelativeLayout
+                android:id="@+id/layout_back_to_guest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true">
+
+                <ImageView
+                    android:id="@+id/layout_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_keyboard_arrow_left_white_24dp"
+
+                    />
+                <!--   <ImageView
+                       android:id="@+id/menu_icon_iv"
+                       android:layout_width="50dp"
+                       android:layout_height="wrap_content"
+                       android:gravity="center"
+                       android:padding="2.0dip"
+                       android:layout_alignParentRight="true"
+                       android:src="@drawable/ic_drawer_icon"
+                       />-->
+
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/text_member"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:tag="Member"
+                android:text="@string/notification"
+                android:textColor="@android:color/white"
+                android:textSize="20.0sp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/transparent_app"
+            app:tabMaxWidth="0dp"
+            app:tabPadding="10dp"
+            app:tabBackground="@drawable/darkroundbuttonnormal"
+
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+          android:background="@color/black"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

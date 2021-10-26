@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<!--    <ImageView-->
+<!--        android:id="@+id/videoViewsplashbackground"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:scaleType="fitXY"-->
+<!--        android:background="#88667497"-->
+<!--        />-->
+  <!--  <RelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:background="@color/toolbar_color">
+
+        &lt;!&ndash; <RelativeLayout
+             android:id="@+id/layout_back_to_guest"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true">
+
+             <de.hdodenhof.circleimageview.CircleImageView
+                 android:id="@+id/layout_logo"
+                 android:layout_width="60dp"
+                 android:layout_height="wrap_content"
+                 android:src="@drawable/blue"
+
+                 />&ndash;&gt;
+        <RelativeLayout
+            android:id="@+id/layout_back_to_guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                android:id="@+id/back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_keyboard_arrow_left_white_24dp"
+
+                />
+
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/team_ninja"
+            android:textColor="@color/text_color_white"
+            android:textSize="20.0sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/black">
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/icon_logo"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_marginRight="15dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="15dp"
+    android:background="#66000000"
+    android:padding="4dp"
+    android:orientation="horizontal"
+    android:layout_marginBottom="25dp">
+    <Button
+        android:id="@+id/btn_loginasuser"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="10sp"
+        android:textColor="@color/text_color_white"
+        android:background="@drawable/btnmemberbackground"
+        android:text="@string/member_login"></Button>
+    <Button
+        android:id="@+id/btn_loginasguest"
+        android:layout_width="0dp"
+        android:layout_height="26dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="10sp"
+        android:textColor="@color/text_color_white"
+        android:background="@drawable/btnguestbackground"
+        android:text="@string/guest_txt"></Button>
+
+
+</LinearLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:background="#fcfcfc"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fcfcfc"
+            android:gravity="center">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/chng_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/change_language"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/black"
+        android:textSize="12.0sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="colorAccent">#b0d239</color>
+    <color name="colorblack">#000000</color>
+    <color name="colorPrimary">#b0d239</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="common_color">#002857</color>
+    <color name="btn_color">#ffffffff</color>
+    <color name="text_color_common">#ff000000</color>
+    <color name="colortxt_darkblue">#442F44</color>
+    <color name="text_color_white">#ffffffff</color>
+    <color name="txt_sendsms">#182944</color>
+    <color name="text_sendsms">#10213d</color>
+    <color name="toolbar_btn">#ff294c8d</color>
+    <color name="red">#ffff4447</color>
+    <color name="app_name_color">#ff919199</color>
+    <color name="nav_transp">#CCFFFFFF</color>
+    <color name="blue">#ff1f4687</color>
+    <color name="btn_blue">#03427d</color>
+    <color name="strike_blue">#ff1e3c82</color>
+    <color name="next_color">#ff06a1f5</color>
+    <color name="lightGray">#e5e5e5</color>
+    <color name="colorBackground">#002857</color>
+    <color name="transparent_app">#66000000</color>
+    <color name="notificatontransparent_app">#44000000</color>
+    <color name="colorNewBackground">#000000</color>
+    <color name="photo_color">#cfcbcb</color>
+    <color name="toolbar_color">#b0d239</color>
+    <color name="inactivelistrow">#55c30505</color>
+    <color name="connectedlistrow">#77ffffe0</color>
+    <color name="white80">#80FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="orange">#FF7538</color>
+</resources>

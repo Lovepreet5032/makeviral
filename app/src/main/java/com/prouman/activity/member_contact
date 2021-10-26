@@ -1,0 +1,232 @@
+showContacts();
+        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+
+        View header = navigationView.getHeaderView(0);
+        headerImage = (CircleImageView) header.findViewById(R.id.imageView);
+
+        Picasso.with(this).load(imgUrl).placeholder(R.drawable.round_corner).into(headerImage);
+        TextView headerTitle = (TextView) header.findViewById(R.id.header_name);
+        headerTitle.setText(firstName);
+        TextView headetID = (TextView) header.findViewById(R.id.memebr_id);
+        headetID.setText(upro_id);
+        TextView headerPlace = (TextView) header.findViewById(R.id.memebr_place);
+        headerPlace.setText("Italy");
+        drawImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                if (drawer.isDrawerOpen(GravityCompat.END)) {
+                    drawer.closeDrawer(GravityCompat.END);
+                } else {
+                    drawer.openDrawer(GravityCompat.END);
+                }
+            }
+        });
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*Intent i = new Intent(NinjaMemberHome.this,NinjaMemberHome.class);
+                startActivity(i);*/
+                drawer.closeDrawers();
+            }
+        });
+        msg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(NinjaMemberHome.this, NotificationActivity.class);
+                startActivity(i);
+                drawer.closeDrawers();
+            }
+        });
+        settingBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(NinjaMemberHome.this, SettingActivity.class);
+                startActivity(i);
+                drawer.closeDrawers();
+            }
+        });
+        toolImg.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        mSearchView.setOnQueryTextListener(listener);
+    }
+    SearchView.OnQueryTextListener listener = new SearchView.OnQueryTextListener() {
+        @Override
+        public boolean onQueryTextChange(String query) {
+            query = query.toLowerCase();
+
+            contactAdapter.getFilter().filter(query);
+            return false;
+
+
+
+
+        }
+        public boolean onQueryTextSubmit(String query) {
+            return false;
+        }
+    };
+    private void initView() {
+        drawImage = (ImageView) findViewById(R.id.menu_icon_iv);
+        phoneNumber = (TextView) findViewById(R.id.phone_number);
+        emailName = (TextView) findViewById(R.id.emailName);
+        toolImg = (CircleImageView) findViewById(R.id.layout_logo);
+        contactImage = (ImageView) findViewById(R.id.contact_image);
+        joinBtn = (Button) findViewById(R.id.change_language);
+        contactName = (TextView) findViewById(R.id.contactName);
+        websiteName = (TextView) findViewById(R.id.website_url_member);
+        copyrightTv = (TextView) findViewById(R.id.copyright_tv_member);
+        header_TV = (TextView) findViewById(tv_contactName);
+        home = (Button) findViewById(R.id.btn_home);
+        msg = (Button) findViewById(R.id.btn_demo_info);
+        settingBtn = (Button) findViewById(R.id.btn_setting);
+        pushBtn = (Button) findViewById(R.id.btn_push);
+        logBtn = (Button) findViewById(R.id.btn_logout);
+        broweserIcon = (ImageView) findViewById(R.id.browswer_icon);
+        emailIcon = (ImageView) findViewById(R.id.email_icon);
+        backBtn = (ImageView) findViewById(R.id.back_btn);
+        chatIcon = (ImageView) findViewById(R.id.msg_icon);
+        rvContacts = (RecyclerView) findViewById(R.id.rvContacts);
+
+
+    }
+
+    private void initToolbar() {
+        Toolbar toolbar =(Toolbar)findViewById(R.id.toolbar);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                return false;
+            }
+        });
+        toolbar.inflateMenu(R.menu.menu_test);
+    }
+
+    private void showContacts() {
+        // Check the SDK version and whether the permission is already granted or not.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS}, PERMISSIONS_REQUEST_READ_CONTACTS);
+            //After this point you wait for callback in onRequestPermissionsResult(int, String[], int[]) overriden method
+        } else {
+            // Android version is lesser than 6.0 or the permission is already granted.
+            getAllContacts();
+
+        }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                           int[] grantResults) {
+        if (requestCode == PERMISSIONS_REQUEST_READ_CONTACTS) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission is granted
+                getAllContacts();
+            } else {
+                Toast.makeText(this, "Until you grant the permission, we canot display the names", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
+    private void getAllContacts() {
+        List<ContactVO> contactVOList = new ArrayList();
+        ContactVO contactVO;
+        // Check the SDK version and whether the permission is already granted or not.
+
+        ContentResolver contentResolver = getContentResolver();
+        Cursor cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + " ASC");
+        if (cursor.getCount() > 0) {
+            while (cursor.moveToNext()) {
+
+                int hasPhoneNumber = Integer.parseInt(cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER)));
+                if (hasPhoneNumber > 0) {
+                    String id = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
+                    String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+                    image_uri = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.PHOTO_URI));
+
+                    contactVO = new ContactVO();
+                    contactVO.setContactName(name);
+                    // contactVO.setContactImage(imgId);
+
+                    Cursor phoneCursor = contentResolver.query(
+                            ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                            null,
+                            ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?",
+                            new String[]{id},
+                            null);
+                    if (phoneCursor.moveToNext()) {
+                        String phoneNumber = phoneCursor.getString(phoneCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                        contactVO.setContactNumber(phoneNumber);
+                    }
+
+                    phoneCursor.close();
+                    if (image_uri != null) {
+                        try {
+                            bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(),Uri.parse(image_uri));
+                            phoneContactImage = getImageBytes(bitmap);
+                            // bitmap =MediaStore.Images.Media.getBitmap()
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        phoneContactImage = null;
+                    }
+
+                    contactVO.setContactImage(phoneContactImage);
+                    // item.setPhone(phone);
+                    Cursor emailCursor = contentResolver.query(
+                            ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                            null,
+                            ContactsContract.CommonDataKinds.Email.CONTACT_ID + " = ?",
+                            new String[]{id}, null);
+                    while (emailCursor.moveToNext()) {
+                        String emailId = emailCursor.getString(emailCursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA));}
+                    emailCursor.close();
+
+                    /*try {
+                        Uri phoneUri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode("Phone number"));
+                      phonesCursor = contentResolver.query(phoneUri, new String[]{ContactsContract.PhoneLookup.PHOTO_THUMBNAIL_URI}, null, null, null);
+                    } catch (NullPointerException | IllegalArgumentException e) {
+                        e.printStackTrace();
+                    }
+
+                    while (phonesCursor.moveToFirst()){
+                        String contactId = phonesCursor.getString(0);
+                        contactVO.setContactImage(contactId);
+                    }
+                    phonesCursor.close();*/
+                    contactVOList.add(contactVO);
+                }
+            }
+
+            //After this point you wait for callback in onRequestPermissionsResult(int, String[], int[]) overriden method
+
+            // Android version is lesser than 6.0 or the permission is already granted.
+
+            rvContacts.setLayoutManager(new LinearLayoutManager(this));
+             contactAdapter = new SampleAdapterView(contactVOList, getApplicationContext(),rvContacts);
+         rvContacts.addItemDecoration( new ContactDividerItem(ContextCompat.getDrawable(getApplicationContext(),R.drawable.item_decoratin)));
+            rvContacts.setAdapter(contactAdapter);
+
+
+        }
+    }
+
+    private byte[] getImageBytes(Bitmap bitmap) {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+        return outputStream.toByteArray();
+    }

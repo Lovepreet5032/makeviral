@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: ./app/libs/sqlcipher.jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/sqlcipher.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/app/libs/sqlcipher-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

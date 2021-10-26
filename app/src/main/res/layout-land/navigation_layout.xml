@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="10dp">
+
+    <RelativeLayout
+        android:id="@+id/ll2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="4.0dip"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="20.0dip">
+
+        <ImageView
+            android:id="@+id/contact_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/round_corner" />
+
+        <TextView
+            android:id="@+id/contact_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/contact_image"
+            android:paddingLeft="15dp"
+            android:layout_centerInParent="true"
+            android:paddingTop="15dp"
+            android:text="@string/name"
+            android:textColor="@color/next_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_above="@+id/ll3"
+        android:layout_gravity="center"
+        android:background="#ababab" />
+
+    <LinearLayout
+        android:id="@+id/ll3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll2"
+        android:layout_marginBottom="10.0dip"
+        android:orientation="vertical"
+        android:paddingBottom="4dip"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="4.0dip">
+
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="30.0dip"
+            android:text="@string/phone_number"
+            android:textColor="@color/text_color_common"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="099891311"
+            android:textColor="@color/text_color_common"
+
+            android:textSize="20.0sp" />
+        <ImageView
+             android:id="@+id/call_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_above="@+id/ll4"
+        android:layout_gravity="center"
+        android:background="#ababab" />
+
+    <LinearLayout
+        android:id="@+id/ll4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll2"
+        android:layout_marginBottom="20.0dip"
+        android:orientation="vertical"
+        android:paddingBottom="4dip"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="4.0dip">
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="30.0dip"
+            android:text="@string/email"
+            android:textColor="@color/text_color_common"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="25.0dip"
+            android:layout_alignParentTop="true"
+            android:text="Emai@gmci.com"
+            android:textColor="@color/text_color_common"
+
+            android:textSize="20.0sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_above="@+id/ll4"
+        android:layout_gravity="center"
+        android:background="#ababab" />
+
+    <LinearLayout
+        android:id="@+id/copyright_layut"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll2"
+        android:layout_marginBottom="20.0dip"
+        android:orientation="vertical"
+        android:paddingBottom="4dip"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="4.0dip">
+
+
+        <TextView
+            android:id="@+id/copyright_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="30.0dip"
+            android:layout_alignParentTop="true"
+            android:text="@string/copright"
+            android:textColor="@color/text_color_common"
+            android:textSize="20.0sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/ll4"
+        android:layout_gravity="center"
+        android:background="#ababab" />
+
+    <LinearLayout
+        android:id="@+id/desclaimer_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll2"
+        android:layout_marginBottom="20.0dip"
+        android:orientation="vertical"
+        android:paddingBottom="4dip"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="4.0dip">
+
+
+        <TextView
+            android:id="@+id/desclaimer_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="30.0dip"
+            android:layout_alignParentTop="true"
+            android:text="@string/desclaimer"
+            android:textColor="@color/text_color_common"
+
+            android:textSize="20.0sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/ll4"
+        android:layout_gravity="center"
+        android:background="#ababab" />
+
+    <LinearLayout
+        android:id="@+id/ll5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll2"
+        android:layout_marginBottom="20.0dip"
+        android:orientation="vertical"
+        android:paddingBottom="4dip"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="4.0dip">
+
+
+        <TextView
+            android:id="@+id/join_us_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="30.0dip"
+            android:layout_alignParentTop="true"
+            android:text="@string/join_us"
+            android:textColor="@color/text_color_common"
+
+            android:textSize="20.0sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/ll4"
+        android:layout_gravity="center"
+        android:background="#ababab" />
+</LinearLayout>

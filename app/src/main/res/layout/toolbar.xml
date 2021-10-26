@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:minHeight="?actionBarSize">
+
+    <ImageView
+        android:id="@+id/toolbar_image"
+        android:layout_width="50.0dip"
+        android:layout_height="50.0dip"
+        android:layout_gravity="left"
+        android:scaleType="fitCenter" />
+
+    <Button
+        android:id="@+id/homeBtn"
+        android:layout_width="70.0dip"
+        android:layout_height="40.0dip"
+        android:layout_gravity="right"
+        android:background="@drawable/rounded_menu"
+        android:text="@string/home"
+        android:textColor="@color/text_color_white" />
+
+    <Button
+        android:id="@+id/logoutBtn"
+        android:layout_width="70.0dip"
+        android:layout_height="40.0dip"
+        android:layout_gravity="right"
+        android:background="@drawable/rounded_menu"
+        android:text="@string/logout"
+        android:textColor="@color/text_color_white" />
+</androidx.appcompat.widget.Toolbar>

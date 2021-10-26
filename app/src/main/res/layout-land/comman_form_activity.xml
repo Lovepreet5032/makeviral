@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorNewBackground">
+
+    <RelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:background="@color/toolbar_color">
+
+        <!-- <RelativeLayout
+             android:id="@+id/layout_back_to_guest"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true">
+
+             <de.hdodenhof.circleimageview.CircleImageView
+                 android:id="@+id/layout_logo"
+                 android:layout_width="60dp"
+                 android:layout_height="wrap_content"
+                 android:src="@drawable/blue"
+
+                 />-->
+        <RelativeLayout
+            android:id="@+id/layout_back_to_guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                android:id="@+id/back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_keyboard_arrow_left_white_24dp"
+
+                />
+
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/native_form"
+            android:textColor="@color/text_color_white"
+            android:textSize="20.0sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/center_image_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/layout_top"
+        android:background="@color/blue">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/formName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_gravity="center_horizontal"
+                android:text="FormName"
+                android:textSize="20sp"
+                android:textColor="@color/text_color_common"
+                android:background="@drawable/background_with_rounded_corners"/>
+
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+               android:paddingLeft="15dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_for_native_form"
+
+                android:hint="@string/name"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"></EditText>
+
+            <EditText
+                android:id="@+id/et_surname"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_for_native_form"
+                android:hint="@string/surname"
+                android:paddingLeft="15dp"
+                android:inputType="textEmailAddress"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"></EditText>
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_for_native_form"
+                android:paddingLeft="15dp"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"></EditText>
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_for_native_form"
+                android:paddingLeft="15dp"
+                android:hint="@string/phone_number"
+                android:inputType="phone"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:singleLine="true"></EditText>
+
+
+            <CheckBox
+                android:id="@+id/CheckBoxResponse"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="@string/privacy"></CheckBox>
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center_horizontal"
+                android:paddingTop="14dp"
+                android:paddingBottom="10dp"
+                android:textAllCaps="false"
+                android:textColor="@color/text_color_white"
+                android:background="@color/btn_blue"
+                android:text="@string/submit"></Button>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

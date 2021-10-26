@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "903056694725",
+    "firebase_url": "https://prouman-1992d.firebaseio.com",
+    "project_id": "prouman-1992d",
+    "storage_bucket": "prouman-1992d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903056694725:android:5f3e812f00a86ce8707fac",
+        "android_client_info": {
+          "package_name": "com.prouman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "903056694725-l3inpb0glfgbaus1hripjv6nu3tm9tpc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.prouman",
+            "certificate_hash": "d13b574d010be882357bcaaf4d8af0a666bf5b25"
+          }
+        },
+        {
+          "client_id": "903056694725-4sgjnuci0a5crbefeeu13nehuf9cq9i4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEqfsuNmGlOH8fDosTI8ZPoZ5u54mV6vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "903056694725-4sgjnuci0a5crbefeeu13nehuf9cq9i4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

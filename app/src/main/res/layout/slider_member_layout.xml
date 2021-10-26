@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:orientation="vertical">
+
+    <!--<View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:layout_above="@+id/phone_layout"
+        android:layout_gravity="center"
+        android:background="#ababab" />-->
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >-->
+
+    <!-- <RelativeLayout
+         android:id="@+id/phone_layout"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+
+         >-->
+
+
+    <RelativeLayout
+        android:id="@+id/photo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:id="@+id/contact_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_setting"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/icon_settings"
+                android:gravity="center" />
+
+            <Button
+                android:id="@+id/btn_push"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/icon_msg_2"
+                android:gravity="center" />
+        </LinearLayout>
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#CACFDC"></View>
+    <LinearLayout
+        android:id="@+id/layout_call"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactTv"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        >
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/nav_call"
+            android:layout_height="36dp"
+            />
+
+        <TextView
+            android:id="@+id/txt_phonenumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="afdsfsdfdsfdsfdsfsd"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#CACFDC"></View>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#CACFDC"
+        android:visibility="gone"></View>
+    <LinearLayout
+        android:id="@+id/layout_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactTv"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        >
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/nav_message"
+            android:layout_height="36dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_msg"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#CACFDC"></View>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#CACFDC"></View>
+    <LinearLayout
+        android:id="@+id/layout_website"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactTv"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        >
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/icon_menuweb"
+            android:layout_height="36dp"
+            />
+
+        <TextView
+            android:id="@+id/txt_weburl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="www.kyaniesempio.com"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#CACFDC"></View>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#CACFDC"></View>
+    <LinearLayout
+        android:id="@+id/layout_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactTv"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        >
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/nav_mail"
+            android:layout_height="36dp"
+            />
+
+        <TextView
+            android:id="@+id/text_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="afdsfsdfdsfdsfdsfsd"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#CACFDC"></View>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#CACFDC"></View>
+    <LinearLayout
+        android:id="@+id/layout_joinus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contactTv"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        >
+        <ImageView
+            android:id="@+id/call_icon"
+            android:layout_width="36dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/icon_menu_join"
+            android:layout_height="36dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mcontacts"
+            />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#CACFDC"></View>
+    <!--  <ImageView
+          android:id="@+id/msg_icon"
+          android:layout_width="72dp"
+          android:layout_gravity="center"
+          android:src="@drawable/icon_msg"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:layout_height="72dp" />-->
+    <!--  <Button
+                  android:text="@string/website"
+                  android:layout_centerVertical="true"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginRight="20dp"
+                  android:layout_marginLeft="20dp"
+                  android:layout_marginTop="8dp"
+                  android:layout_marginBottom="8dp"
+                  android:padding="15dp"
+                  android:id="@+id/btn_website"
+                  android:textSize="20sp"
+                  android:textColor="@color/text_color_white"
+                  android:background="@drawable/custom_round_button"
+                  android:layout_alignParentLeft="true"
+                  android:textStyle="normal" />-->
+
+
+    <!--<ImageView
+        android:id="@+id/browswer_icon"
+        android:layout_width="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_browser"
+        android:layout_centerVertical="true"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>-->
+    <!-- <TextView
+         android:id="@+id/txtwebsiteurl"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:paddingTop="5dp"
+         android:maxLines="2"
+         />-->
+    <!--</LinearLayout>-->
+    <!--    <View
+            android:layout_width="match_parent"
+
+            android:layout_height="1dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:layout_above="@+id/copyright_layout"
+            android:layout_gravity="center"
+            android:background="#ababab" />-->
+    <!-- <LinearLayout
+         android:id="@+id/copyright_layout"
+         android:layout_width="match_parent"
+         android:layout_height="60dp"
+          android:padding="8dp"
+         android:orientation="vertical">-->
+
+    <!--  <Button
+          android:text="@string/copright"
+          android:layout_width="match_parent"
+          android:id="@+id/copyright_tv_member"
+          android:gravity="center"
+          android:textSize="20sp"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:padding="15dp"
+          android:textStyle="normal"
+          android:layout_height="wrap_content"
+          android:textColor="@color/text_color_white"
+          android:background="@drawable/custom_round_button"
+          android:layout_alignParentLeft="true" />-->
+
+    <!--
+            </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/copyright_layout"
+            android:layout_gravity="center"
+            android:background="#ababab" />-->
+
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/transparent_app">
+        <TextView
+            android:id="@+id/link_pages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/link_pages"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:paddingRight="5dp"
+            android:paddingLeft="25dp"
+            android:drawablePadding="5dp"
+            android:textColor="#192542"
+            android:textSize="18sp"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#CACFDC"></View>
+
+    </LinearLayout>

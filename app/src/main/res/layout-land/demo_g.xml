@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_gradient"
+    android:keepScreenOn="true">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:id="@+id/layout_top"
+            android:layout_width="fill_parent"
+            android:layout_height="40.0dip"
+            android:background="#ff313853">
+
+            <RelativeLayout
+                android:id="@+id/layout_back_to_guest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10.0dip"
+                android:background="@drawable/rounded_menu">
+
+                <TextView
+                    android:id="@+id/text_guest_right_menu_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="7.0dip"
+                    android:text="Back"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
+                android:layout_toRightOf="@+id/layout_back_to_guest"
+                android:text="Contact"
+                android:textColor="@android:color/white"
+                android:textSize="16.0sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_top"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20.0dip"
+            android:text="@string/name"
+            android:textColor="@color/text_color_white"
+            android:textSize="20.0sp" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="20.0dip"
+            android:layout_marginLeft="20.0dip"
+            android:text="@string/name" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20.0dip"
+            android:text="@string/name"
+            android:textColor="@color/text_color_white"
+            android:textSize="20.0sp" />
+
+        <TextView
+            android:id="@+id/tvLast"
+            android:layout_width="wrap_content"
+            android:layout_height="20.0dip"
+            android:layout_marginLeft="20.0dip"
+            android:text="@string/name" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll2"
+        android:layout_marginBottom="20.0dip"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20.0dip"
+            android:text="@string/phone_number"
+            android:textColor="@color/text_color_white"
+            android:textSize="20.0sp" />
+
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="20.0dip"
+            android:layout_marginLeft="20.0dip"
+            android:text="\ 9817256211" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/call_btn"
+        android:layout_width="250.0dip"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll3"
+        android:layout_centerInParent="true"
+        android:background="@drawable/button_selector"
+        android:gravity="center_horizontal"
+        android:text="@string/call"
+        android:textColor="@color/text_color_white"
+        android:textSize="30.0sp" />
+        </RelativeLayout>
+</RelativeLayout>

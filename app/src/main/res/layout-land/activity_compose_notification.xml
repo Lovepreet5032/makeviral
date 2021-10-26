@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+      android:background="@color/black">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/layout_top"
+                android:layout_width="match_parent"
+                android:layout_height="50.0dip"
+                android:background="@color/toolbar_color">
+                <RelativeLayout
+                    android:id="@+id/layout_back_to_guest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true">
+
+                    <ImageView
+                        android:id="@+id/layout_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_keyboard_arrow_left_white_24dp"
+
+                        />
+                    <!--   <ImageView
+                           android:id="@+id/menu_icon_iv"
+                           android:layout_width="50dp"
+                           android:layout_height="wrap_content"
+                           android:gravity="center"
+                           android:padding="2.0dip"
+                           android:layout_alignParentRight="true"
+                           android:src="@drawable/ic_drawer_icon"
+                           />-->
+
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/text_member"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:tag="Member"
+                    android:text="Send Notification"
+                    android:textColor="@android:color/white"
+                    android:textSize="20.0sp"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pushtitle"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="20sp"
+                    android:layout_marginTop="20dp"
+                    />
+                <EditText android:id="@+id/input_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hinttitle"
+                    android:drawablePadding="20dp"
+                    android:background="@drawable/whiteback_roundcorner"
+                    android:padding="15dp"
+                    android:textColor="@color/text_color_white"
+                    android:layout_marginTop="8dp"
+                    android:textColorHint="#d4d4d4"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pushmessage"
+                    android:textSize="20sp"
+                    android:textColor="@color/text_color_white"
+                    android:layout_marginTop="20dp"
+                    />
+                <EditText android:id="@+id/input_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_message"
+                    android:minLines="8"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/whiteback_roundcorner"
+                    android:textColor="@color/text_color_white"
+                    android:textColorHint="#d4d4d4"
+                    android:gravity="top"
+                    android:padding="8dp"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/btn_sent"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom|end"
+        android:background="@drawable/darkroundbuttonnormal"
+        android:layout_margin="10dp"
+        android:text="@string/send_notification"
+        android:textColor="#ffffff"/>
+</LinearLayout>

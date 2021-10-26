@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".notification.NotificationDetail">
+    <RelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:background="@color/toolbar_color">
+        <RelativeLayout
+            android:id="@+id/layout_back_to_guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true">
+
+            <ImageView
+                android:id="@+id/layout_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_keyboard_arrow_left_white_24dp"
+
+                />
+            <!--   <ImageView
+                   android:id="@+id/menu_icon_iv"
+                   android:layout_width="50dp"
+                   android:layout_height="wrap_content"
+                   android:gravity="center"
+                   android:padding="2.0dip"
+                   android:layout_alignParentRight="true"
+                   android:src="@drawable/ic_drawer_icon"
+                   />-->
+
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/text_member"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:tag="Member"
+            android:text="@string/notification_detail"
+            android:textColor="@android:color/white"
+            android:textSize="20.0sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+<ScrollView
+    android:id="@+id/layout_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/layout_top"
+      android:background="@color/black"
+    android:fillViewport="true"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="@color/transparent_app">
+        <TextView
+            android:id="@+id/txt_date"
+            android:layout_width="match_parent"
+            android:textColor="#d4d4d4"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="d"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_user"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@mipmap/ic_launcher"/>
+        <TextView
+            android:id="@+id/txt_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/text_color_white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="d"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/text_color_white"
+            android:textSize="20sp"
+            android:text="d"/>
+   <!--     <TextView
+            android:id="@+id/txt_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black"
+            android:linksClickable="true"
+            android:autoLink="web"
+            android:text="d"/>-->
+        <TextView
+            android:id="@+id/txt_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/text_color_white"
+            android:linksClickable="true"
+            android:autoLink="web"
+            android:text="d"/>
+    </LinearLayout>
+</ScrollView>
+</RelativeLayout>

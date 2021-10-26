@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_nav_drwa"
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/colorBackground"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".guest_section.NinjaGuestHome"
+    tools:showIn="@layout/app_bar_nav_drwa">
+
+
+        <RelativeLayout
+            android:id="@+id/layout_top"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:background="#ff313853">
+
+            <TextView
+                android:id="@+id/text_member"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:tag="Member"
+                android:text="Member"
+                android:textColor="@android:color/white"
+                android:textSize="20.0sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/layout_go_to_guest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="1.0dip"
+                >
+
+                <ImageView
+                    android:id="@+id/draver_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="2.0dip"
+                    android:src="@drawable/ic_drawer_icon"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_photo"
+                android:layout_width="60.0dip"
+                android:layout_height="fill_parent">
+
+                <ImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="38.0dip"
+                    android:layout_height="38.0dip"
+                    android:layout_centerInParent="true"
+                    android:src="@android:color/darker_gray"
+                  />
+            </RelativeLayout>
+        </RelativeLayout>
+
+<RelativeLayout
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/layout_top"
+    android:background="@drawable/bg_screen_for_guest">
+
+
+
+    <RelativeLayout
+        android:id="@+id/image_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        >
+
+        <ImageView
+            android:id="@+id/top_logo"
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+           android:layout_centerInParent="true"
+            android:src="@drawable/logo"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/grid_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/image_logo"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:id="@+id/the_business"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:src="@drawable/blue"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBackground"
+                android:text="The Business"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/join_the_kyani"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:src="@drawable/blue"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBackground"
+                android:text="Join Us"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/viral_ninja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:src="@drawable/blue"
+                android:id="@+id/imageView4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBackground"
+                android:text="Join Viral Ninja"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/grid_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/grid_layout1"
+        android:layout_weight="3"
+        >
+
+    <LinearLayout
+        android:id="@+id/shop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1.9"
+
+       >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/blue"
+            android:id="@+id/imageView3"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorBackground"
+            android:text="Shop Product "/>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1.98"
+           >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:src="@drawable/blue"
+                android:id="@+id/imageView5" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="16sp"
+                android:textColor="@color/colorBackground"
+                android:textStyle="bold"
+                android:text="Video"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>
+
+</RelativeLayout>

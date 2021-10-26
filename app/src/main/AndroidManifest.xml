@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.prouman">
+
+    <application
+        android:name=".NinjaApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_app"
+        android:roundIcon="@mipmap/ic_launcher_app_round"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.LoginSelectionActivity"
+            android:label="@string/title_activity_login_selection"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
+            android:name=".activity.SplashActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+             Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <activity
+            android:name=".activity.NinjaLoginActivity"
+            android:configChanges="orientation|screenSize" />
+
+<!--        <activity-->
+<!--            android:name=".guest_section.GuestLoginActivity"-->
+<!--            android:configChanges="orientation|screenSize" />-->
+        <activity
+            android:name=".activity.WTheWebinar"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activity.WatchTheWebinar"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <action android:name="android.intent.action.DIAL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+<!--        <activity-->
+<!--            android:name=".activity.MemberLoginActivity"-->
+<!--            android:configChanges="orientation|screenSize" />-->
+        <activity
+            android:name=".activity.NotificationActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activity.SettingActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activity.MemberVideoActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activity.PrivateCategoryActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".mesg_data.MessageListActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".sms_template.SmsActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".ninjaforms.NativeFormActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activity.ContactActivity"
+            android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <action android:name="android.intent.action.DIAL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.DetailViewActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activity.NinjaMemberHome"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".guest_section.NinjaGuestHome"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activity.BusinessView"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activity.NinjaCategoryActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/category" />
+        <activity
+            android:name=".activity.VideoListActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/video_list" />
+        <activity
+            android:name=".activity.WebPlayerActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true" />
+        <activity
+            android:name=".activity.VPlayerActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:label="@string/video_player" />
+        <activity
+            android:name=".activity.NinjaVideoActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activity.GuestNavActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_guest_nav"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.ContactListActivity"
+            android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <action android:name="android.intent.action.DIAL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".contact_act.TestDbActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".activity.NinjaContactListMain" />
+        <activity
+            android:name=".native_form.FormActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".member_all.GHomeActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".member_all.FunnelProdottoActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activity.EmailListActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".member_all.FunnelBusinessActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".member_all.PodcastActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".member_all.ProductInfoCategory"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".member_all.DiseaseCategory"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".member_all.PushActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".member_all.ProductTestominal"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".member_all.MemSecVideoActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".member_all.WebinarActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".member_all.PrivateVideoActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".test_db.TestDbActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".member_all.VipCardActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".member_all.SevenDayActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".guest_section.RSSActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activity.ListenTheWebinar"
+            android:configChanges="orientation|screenSize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <action android:name="android.intent.action.DIAL" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ProductTestimonialSubsection"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".notification.NotificationList"
+            android:configChanges="orientation|screenSize" />
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <activity
+            android:name=".notification.NotificationDetail"
+            android:configChanges="orientation|screenSize" />
+
+        <activity
+            android:name=".notification.LoginUserNotificationList"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/title_activity_login_user_notification_list"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".notification.ComposeNotification"
+            android:configChanges="orientation|screenSize"
+            android:fitsSystemWindows="true"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".ninjaforms.DynamicForm"
+            android:configChanges="orientation|screenSize" />
+
+        <activity
+            android:name=".HomeActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".videonewscreen.VideoDirectory" />
+        <activity android:name=".videonewscreen.VideoHub" />
+        <activity android:name=".videonewscreen.InappWebview" />
+        <activity android:name=".videonewscreen.WebplayerActivityNew" />
+        <activity android:name=".omspages.PagesMainActivity" />
+        <activity android:name=".omspages.PageDetail" />
+        <activity android:name=".contactmanager.ContactList" />
+        <activity android:name=".contactmanager.ContactDetail" />
+        <activity android:name=".contactmanager.ContactMangerSearch" />
+        <activity android:name=".contactmanager.AdvanceSearch" />
+        <activity
+            android:name=".contactmanager.AddtoCampign"
+            android:label="@string/title_activity_addto_campign"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".contactmanager.AddtoBroadcastList"
+            android:label="@string/title_activity_addto_broadcast_list"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".contactmanager.AddToGroup"
+            android:label="@string/title_activity_addto_group"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".contactmanager.AddtoBroadCast" />
+        <activity android:name=".contactmanager.EditCampaigns" />
+        <activity android:name=".contactmanager.TransferProspects" />
+        <activity android:name=".tagmanager.TagListActivity" />
+        <activity android:name=".group.GroupListActivity" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/bg_land" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <service android:name=".service.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".service.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".services.UploadData"
+            android:exported="false" />
+    </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+</manifest>

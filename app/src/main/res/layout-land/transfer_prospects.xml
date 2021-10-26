@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+      android:background="@color/black"
+    tools:context="com.prouman.contactmanager.AdvanceSearch">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/toolbar_color"
+        android:elevation="4dp"
+        android:minHeight="?attr/actionBarSize"
+        style="@style/Widget.AppCompat.Toolbar"
+        >
+        <RelativeLayout
+            android:id="@+id/layout_top"
+            android:layout_width="match_parent"
+            android:layout_height="50.0dip"
+
+            >
+            <RelativeLayout
+                android:id="@+id/layout_back_to_guest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true">
+
+                <ImageView
+                    android:id="@+id/layout_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_keyboard_arrow_left_white_24dp"
+
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="left|center_vertical"
+                    android:text="@string/transfer_prospects"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/text_color_white"
+                    android:layout_toRightOf="@+id/layout_logo"
+                    />
+                <!--   <ImageView
+                       android:id="@+id/menu_icon_iv"
+                       android:layout_width="50dp"
+                       android:layout_height="wrap_content"
+                       android:gravity="center"
+                       android:padding="2.0dip"
+                       android:layout_alignParentRight="true"
+                       android:src="@drawable/ic_drawer_icon"
+                       />-->
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+    <EditText android:id="@+id/input_distibutorid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/Distributor_id_email"
+        android:padding="12dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="50dp"
+        android:textColor="#ffffff"
+        android:background="@drawable/whiteback_roundcorner"
+        android:textColorHint="#ffffff"/>
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
+        android:paddingTop="14dp"
+        android:paddingBottom="10dp"
+        android:textAllCaps="false"
+        android:textColor="@color/text_color_white"
+        android:background="@color/btn_blue"
+        android:text="@string/transfer"></Button>
+</LinearLayout>

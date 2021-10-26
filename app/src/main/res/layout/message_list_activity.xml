@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+      android:background="@color/black">
+
+    <RelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:background="@color/colorBackground">
+
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/viral_mail"
+            android:textColor="@color/text_color_white"
+            android:textSize="20.0sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/layout_back_to_guest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <ImageView
+                android:id="@+id/back_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_keyboard_arrow_left_white_24dp"
+
+                />
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/contact_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_below="@+id/layout_top"
+        android:orientation="horizontal"
+        android:background="#55ffffff">
+        <LinearLayout
+            android:id="@+id/contact_number1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:orientation="vertical">
+
+            <!--   <TextView
+                   android:text="TextView"
+                   android:padding="10dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_centerVertical="true"
+                   android:textColor="@color/text_sendsms"
+                   android:id="@+id/textView7" />-->
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/contact_number2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:paddingRight="8dp"
+            android:orientation="vertical">
+
+            <!--   <TextView
+                   android:text="TextView"
+                   android:padding="10dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_centerVertical="true"
+                   android:textColor="@color/text_sendsms"
+                   android:id="@+id/textView7" />-->
+
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/spinner_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_below="@+id/contact_number"
+        android:background="#55ffffff">
+      <!--  <TextView
+            android:text="@string/language"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="15sp"
+            android:textColor="@color/text_sendsms"
+            android:id="@+id/tvLanguage" />-->
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_composesms">
+            <RadioGroup
+                android:id="@+id/radio_message_type"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/radio_email_campaigns"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_sendsms"
+                    android:checked="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/email_campigns"/>
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/radio_email_templates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_sendsms"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/email_templates"/>
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/radio_sms_campaigns"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_sendsms"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/sms_campigns"/>
+
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/radio_sms_templates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_sendsms"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/sms_templates"/>
+
+
+            </RadioGroup>
+        </HorizontalScrollView>
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/message_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/spinner_language"
+        android:orientation="vertical"
+        android:background="#55ffffff"
+       >
+        <RelativeLayout
+            android:id="@+id/spinner_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:background="#55ffffff">
+            <TextView
+                android:text="@string/category"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="10dp"
+                android:textSize="15sp"
+                android:textColor="@color/text_sendsms"
+                android:id="@+id/tvCategory" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:layout_toRightOf="@+id/tvCategory"
+                android:background="@drawable/round_composesms"
+                >
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+
+                    android:id="@+id/spinner" />
+            </LinearLayout>
+        </RelativeLayout>
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:fillViewport="true"
+            android:background="#99ffffff"
+            android:layout_margin="15dp"
+            android:layout_below="@+id/spinner_category">
+       <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/message_recyler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"/>
+        </ScrollView>
+    </LinearLayout>
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/message_list"
+        android:layout_gravity="center"
+        android:background="@color/lightGray"
+        android:visibility="gone"
+        />
+    <RelativeLayout
+        android:id="@+id/rlWriteMsg"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/line1"
+        android:layout_alignParentBottom="true"
+        android:background="@color/transparent_app"
+        android:visibility="gone"
+       >
+        <TextView
+            android:id="@+id/sendTv"
+            android:text="@string/send_sms"
+            android:gravity="center_horizontal"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_white"/>
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_msg"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:src="@drawable/ic_down"-->
+            <!--android:layout_marginTop="8dp" />-->
+    </RelativeLayout>
+</RelativeLayout>

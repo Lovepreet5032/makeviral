@@ -1,0 +1,500 @@
+package com.prouman.activity;
+
+import android.Manifest;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.provider.Telephony;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.telephony.TelephonyManager;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.OrientationEventListener;
+import android.view.View;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.prouman.R;
+import com.prouman.Util.ConfigURL;
+import com.prouman.Util.PrefrencesConstant;
+import com.prouman.Util.SessionManager;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+
+/**
+ * Created by jcs on 10/2/2016.
+ */
+public class ListenTheWebinar extends AppCompatActivity {
+
+    private WebView webView;
+    private FrameLayout customViewContainer;
+    private WebChromeClient.CustomViewCallback customViewCallback;
+    private View mCustomView;
+    private myWebChromeClient mWebChromeClient;
+    private myWebViewClient mWebViewClient;
+    String url;
+    private RelativeLayout backToGuest;
+    private RelativeLayout bottomLayout;
+    private boolean isShowShareLayout;
+    private ProgressBar loadProgress;
+    private ImageView backBtn,callBtn,smsBtn,joinTheKyani,sharebtn;
+    private OrientationEventListener myOrientationEventListener;
+    private RelativeLayout shareLayout;
+    private TextView title;
+    private RelativeLayout topLayout;
+    private String uproID ,hash;
+    private String vTitle,vSource;
+    SessionManager session;
+    private String firstName,lastName,phone,img_name,websiteUrl;
+    SharedPreferences sharedPreferences;
+    private String strShareUrl;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.listen_the_webinar);
+        //SharedPreferences sharedPreferences = this.getSharedPreferences("MyPref", 0);
+       // uproID = sharedPreferences.getString(PrefrencesConstant.uproid, null);
+        //hash = sharedPreferences.getString(PrefrencesConstant.hash, null);
+        session=new SessionManager(getApplicationContext());
+        String status=session.getPreferences(ListenTheWebinar.this,"status");
+        RelativeLayout layout_main=(RelativeLayout)findViewById(R.id.layout_main);
+        SharedPreferences sharedPreferences =this.getSharedPreferences("MyPref",0);
+        if(sharedPreferences.getString(PrefrencesConstant.hash,"").equalsIgnoreCase("")){
+            layout_main.setBackground(getResources().getDrawable(R.drawable.bg_guest));
+        }
+//        if (status.equals("1")) {
+            sharedPreferences =this.getSharedPreferences("MyPref",0);
+            uproID = sharedPreferences.getString(PrefrencesConstant.uproid,null);
+            hash= sharedPreferences.getString(PrefrencesConstant.hash,null);
+            sharedPreferences.getString(PrefrencesConstant.hash,null);
+            firstName=sharedPreferences.getString("FName", null);
+            lastName=sharedPreferences.getString("LName",null);
+            phone= sharedPreferences.getString("Phone", null);
+            img_name=sharedPreferences.getString("imgName",null);
+            websiteUrl=sharedPreferences.getString("upro_subdomain_link", null);
+     //   }
+        topLayout = ((RelativeLayout)findViewById(R.id.layout_top));
+        backBtn =(ImageView)findViewById(R.id.layout_logo);
+        callBtn=(ImageView) findViewById(R.id.call_tv);
+        smsBtn=(ImageView)findViewById(R.id.sms_tv);
+        sharebtn=(ImageView)findViewById(R.id.share_tv);
+        joinTheKyani=(ImageView)findViewById(R.id.join_the_kyani_tv);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View v) {
+
+                finish();
+
+
+            }
+        });
+        customViewContainer = (FrameLayout) findViewById(R.id.web_main_container);
+        webView = (WebView) findViewById(R.id.web_details);
+   /*     webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return false;
+            }
+        });
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webView.loadData(frameVideo, "text/html", "utf-8");*/
+        try {
+            mWebViewClient = new myWebViewClient();
+            webView.setWebViewClient(mWebViewClient);
+
+
+            mWebChromeClient = new myWebChromeClient();
+            webView.setWebChromeClient(mWebChromeClient);
+       /* webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setAppCacheEnabled(true);
+        webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setSaveFormData(true);*/
+            WebSettings settings = webView.getSettings();
+            settings.setAllowFileAccess(true);
+            settings.setJavaScriptEnabled(true);
+            settings.setDomStorageEnabled(true);
+            settings.setMinimumFontSize(10);
+            settings.setLoadWithOverviewMode(true);
+            settings.setUseWideViewPort(true);
+            settings.setBuiltInZoomControls(false);
+            settings.setDisplayZoomControls(false);
+            settings.setUseWideViewPort(true);
+            settings.setLoadWithOverviewMode(true);
+            webView.setVerticalScrollBarEnabled(false);
+           getVideo();
+          /*  myOrientationEventListener = new OrientationEventListener(this) {
+                @Override
+                public void onOrientationChanged(int orientation) {
+
+                    if (getResources().getConfiguration().orientation == 1)
+                    {
+                        topLayout.setVisibility(View.GONE);
+                        if (isShowShareLayout) {
+                            bottomLayout.setVisibility(View.VISIBLE);
+                        }
+                    }
+                    do
+                    {
+                        topLayout.setVisibility(View.VISIBLE);
+
+
+                    } while (isShowShareLayout);
+                    bottomLayout.setVisibility(View.GONE);
+                }
+            };
+            if (myOrientationEventListener.canDetectOrientation()) {
+                myOrientationEventListener.enable();
+            }
+            bottomLayout.setVisibility(View.VISIBLE);
+            return;*/
+
+        }
+
+
+
+
+
+        //myOrientationEventListener = new OrientationEventListener(this, 3)
+
+        // Start the MediaController
+          /*videoView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
+            //
+            videoView.setWebViewClient(new WebViewClient()
+            {
+                @Override
+                public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                    return false;
+                }
+            });*/
+            /*videoView.getSettings().setJavaScriptEnabled(true);
+            String frameVideo = changedHeaderHtml(videoUrl);
+           videoView.loadData(url, "text/html", "utf-8");*/
+        //pDialog.hide();
+
+        catch (Exception e) {
+            Log.e("Error", e.getMessage());
+            e.printStackTrace();
+        }
+        callBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onCall();
+            }
+        });
+        smsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendSMS();
+            }
+        });
+        sharebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.app_name));
+                shareIntent.putExtra(Intent.EXTRA_TEXT, strShareUrl);
+                startActivity(Intent.createChooser(shareIntent, "Share via"));
+
+            }
+        });
+        joinTheKyani.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                SharedPreferences sharedPreferences =ListenTheWebinar.this.getSharedPreferences("MyPref",0);
+//                startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.kyanilink, ""))));
+            }
+        });
+    }
+    private void sendSMS() {
+        if (Build.VERSION.SDK_INT >= 19) {
+            String defaultSmsPackageName = Telephony.Sms.getDefaultSmsPackage(this);
+            Intent sendIntent = new Intent("android.intent.action.SEND", Uri.parse("tel:" + phone));
+            sendIntent.putExtra("address", phone);
+            sendIntent.setType("text/plain");
+            sendIntent.putExtra("android.intent.extra.TEXT", "");
+            if (defaultSmsPackageName != null) {
+                sendIntent.setPackage(defaultSmsPackageName);
+            }
+            startActivity(sendIntent);
+            return;
+        }
+        Intent smsIntent = new Intent("android.intent.action.VIEW");
+        smsIntent.setType("vnd.android-dir/mms-sms");
+        smsIntent.putExtra("address", phone);
+        smsIntent.putExtra("sms_body", "message");
+        startActivity(smsIntent);
+    }
+
+    /*  private void onCall() {
+          if (Build.VERSION.SDK_INT >= 19) {
+              TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+              Intent sendIntent = new Intent("android.intent.action.CALL", Uri.parse("tel:" + phone));
+              sendIntent.putExtra("address", phone);
+              if (tm != null && tm.getSimState() == 5) {
+                  startActivity(sendIntent);
+                  return;
+              }
+              return;
+          }
+          Intent callIntent = new Intent("android.intent.action.DIAL");
+          callIntent.setPackage("com.android.phone");
+          callIntent.setData(Uri.parse(phone));
+          startActivity(callIntent);
+      }*/
+    private void onCall() {
+        if (Build.VERSION.SDK_INT >= 19) {
+            int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
+
+            if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                        this,
+                        new String[]{Manifest.permission.CALL_PHONE},
+                        123);
+            } else {
+                startActivity(new Intent(Intent.ACTION_CALL).setData(Uri.parse("tel:" + phone)));
+            }
+            TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+            Intent sendIntent = new Intent("android.intent.action.CALL", Uri.parse("tel:" + phone));
+            sendIntent.putExtra("address", phone);
+            if (tm != null && tm.getSimState() == 5) {
+                startActivity(sendIntent);
+                return;
+            }
+            return;
+        }
+        Intent callIntent = new Intent("android.intent.action.DIAL");
+        callIntent.setPackage("com.android.phone");
+        callIntent.setData(Uri.parse(phone));
+        startActivity(callIntent);
+    }
+    protected void sendEmail() {
+        Log.i("Send email", "");
+        String[] TO = {""};
+        String[] CC = {""};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Your subject");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Email message goes here");
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            return;
+
+        }
+        catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(ListenTheWebinar.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                           int[] grantResults) {
+        switch (requestCode) {
+            case 123:
+                if (grantResults.length <= 0 || grantResults[0] != 0) {
+                    Log.d("TAG", "Call Permission Not Granted");
+                } else {
+                    onCall();
+                }
+            default:
+        }
+    }
+    private void getVideo() {
+       final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading");
+        progressDialog.show();
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, ConfigURL.GET_WEBINAR, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(progressDialog!=null){progressDialog.hide();}
+
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        JSONObject jobjwebinar=jsonObject.getJSONObject("webinar");
+                        String  webinar = jobjwebinar.getString("wplink");
+
+                        String vId = jobjwebinar.getString("id");
+                        vTitle = jobjwebinar.getString("title");
+
+                        // vSource = jobjwebinar.getString("wpiframe");
+                        url = changedHeaderHtml(webinar);
+                        webView.setInitialScale(1);
+                        //  frameVideo = changedHeaderHtml(url);
+                        strShareUrl= webinar;
+
+                        webView.loadDataWithBaseURL(null, url, "text/html", "UTF-8", null);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if(progressDialog!=null){progressDialog.hide();}
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                super.getParams();
+                Map<String, String> params = new HashMap<>();
+                params.put("upro_id", uproID);
+                if(!hash.equals("")) {
+                    params.put(PrefrencesConstant.hash, hash);
+                }
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
+
+    }
+
+    public boolean inCustomView() {
+        return (mCustomView != null);
+    }
+
+    public void hideCustomView() {
+        mWebChromeClient.onHideCustomView();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();    //To change body of overridden methods use File | Settings | File Templates.
+        webView.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();    //To change body of overridden methods use File | Settings | File Templates.
+        webView.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();    //To change body of overridden methods use File | Settings | File Templates.
+        if (inCustomView()) {
+            hideCustomView();
+        }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+
+            if (inCustomView()) {
+                hideCustomView();
+                return true;
+            }
+
+            if ((mCustomView == null) && webView.canGoBack()) {
+                webView.goBack();
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    class myWebChromeClient extends WebChromeClient {
+        private Bitmap mDefaultVideoPoster;
+        private View mVideoProgressView;
+
+        @Override
+        public void onShowCustomView(View view, int requestedOrientation, CustomViewCallback callback) {
+            onShowCustomView(view, callback);    //To change body of overridden methods use File | Settings | File Templates.
+        }
+
+        @Override
+        public void onShowCustomView(View view, CustomViewCallback callback) {
+
+            // if a view already exists then immediately terminate the new one
+            if (mCustomView != null) {
+                callback.onCustomViewHidden();
+                return;
+            }
+            mCustomView = view;
+            webView.setVisibility(View.GONE);
+            customViewContainer.setVisibility(View.VISIBLE);
+            customViewContainer.addView(view);
+            customViewCallback = callback;
+        }
+
+        @Override
+        public View getVideoLoadingProgressView() {
+
+            if (mVideoProgressView == null) {
+                LayoutInflater inflater = LayoutInflater.from(ListenTheWebinar.this);
+                mVideoProgressView = inflater.inflate(R.layout.video_progress, null);
+            }
+            return mVideoProgressView;
+        }
+
+        @Override
+        public void onHideCustomView() {
+            super.onHideCustomView();    //To change body of overridden methods use File | Settings | File Templates.
+            if (mCustomView == null)
+                return;
+
+            webView.setVisibility(View.VISIBLE);
+            customViewContainer.setVisibility(View.GONE);
+
+            // Hide the custom view.
+            mCustomView.setVisibility(View.GONE);
+
+            // Remove the custom view from its container.
+            customViewContainer.removeView(mCustomView);
+            customViewCallback.onCustomViewHidden();
+
+            mCustomView = null;
+        }
+    }
+
+    class myWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String request) {
+            return super.shouldOverrideUrlLoading(view, request);
+        }
+    }
+    public static String changedHeaderHtml(String paramString)
+    {
+        return "<html><head><meta name=\"viewport\" content=\"width=device-width, user-scalable=yes\" /></head><body bgcolor=\"#000000\" marginheight=\"0\" marginwidth=\"0\"><iframe src="+paramString+" width=\"640\" height=\"360\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen marginheight=\"0\" marginwidth=\"0\"></iframe></body></html>";
+    }
+
+}

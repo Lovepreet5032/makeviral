@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    card_view:elevation="5dp"
+    card_view:cardUseCompatPadding="true"
+    >
+<LinearLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white80"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <CheckBox
+        android:id="@+id/chkSelected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:button="@drawable/abc_btn_check_material"
+        android:buttonTint="@color/colorBackground"
+        android:paddingRight="2dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:checked="false"
+        android:layout_alignParentEnd="true" />
+<ImageView
+    android:id="@+id/img_user"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:layout_gravity="center_vertical"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_prosname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/text_sendsms"
+            android:text="dsss"/>
+        <TextView
+            android:id="@+id/text_pros_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/txt_sendsms"
+            android:text="dsss"/>
+        <TextView
+            android:id="@+id/text_prosemail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/txt_sendsms"
+            android:text="dsss"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/blue"></View>
+</LinearLayout>
+</LinearLayout>
+</androidx.cardview.widget.CardView>

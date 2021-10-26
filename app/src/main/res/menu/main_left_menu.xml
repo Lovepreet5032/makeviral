@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navigation_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="Logout" />
+        <item
+            android:id="@+id/navigation_brochure"
+            android:icon="@drawable/navicon2"
+            android:title="Logout" />
+        <item
+            android:id="@+id/nav_news"
+            android:icon="@drawable/navicon3"
+            android:title="Logout" />
+        <item
+            android:id="@+id/nav_richieste"
+            android:icon="@drawable/navicon4"
+            android:visible="false"
+            android:title="Logout" />
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/navicon5"
+            android:title="Logout" />
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/navicon5"
+            android:title="Area riservata" />
+        <item
+            android:id="@+id/navigation_list_customer"
+            android:title="List of customers"/>
+        <item
+            android:id="@+id/navigation_list_quotes"
+            android:title="List of quote"/>
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/navicon5"
+            android:title="Logout" />
+        <item
+            android:id="@+id/nav_esci"
+            android:title="Esci" />
+    </group>
+
+    <!--<item android:title="Communicate">-->
+    <!--<menu>-->
+
+    <!--<item
+        android:id="@+id/nav_send"
+        android:icon="@drawable/ic_menu_send"
+        android:title="Send" />-->
+    <!--</menu>
+</item>-->
+
+</menu>

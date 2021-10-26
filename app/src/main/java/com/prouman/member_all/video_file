@@ -1,0 +1,189 @@
+{
+  "success": "true",
+  "status": 200,
+  "category": [
+    {
+      "id": "20",
+      "name": "Testimonianze Prodotti",
+      "status": "1",
+      "slug": "Testimonianze-Prodotti-2",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "18",
+      "name": "Testimonianze Business",
+      "status": "1",
+      "slug": "Testimonianze-Business-2",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "34",
+      "name": "Products Category",
+      "status": "1",
+      "slug": "Products-Category-10",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "33",
+      "name": "Kyani Powder",
+      "status": "1",
+      "slug": "Kyani-Powder-9",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "32",
+      "name": "Nitro Xtrime",
+      "status": "1",
+      "slug": "Nitro-Xtrime-8",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "31",
+      "name": "Nitro Fx",
+      "status": "1",
+      "slug": "Nitro-Fx-7",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "30",
+      "name": "Sunset",
+      "status": "1",
+      "slug": "Sunset-6",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "29",
+      "name": "Sunrise",
+      "status": "1",
+      "slug": "Sunrise-5",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "27",
+      "name": "CHIAMATA",
+      "status": "1",
+      "slug": "CHIAMATA-9",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "28",
+      "name": "WEBINAR",
+      "status": "1",
+      "slug": "WEBINAR-10",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "35",
+      "name": "headache",
+      "status": "1",
+      "slug": "headache-11",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "36",
+      "name": "Stress",
+      "status": "1",
+      "slug": "Stress-12",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "37",
+      "name": "Products Testimonials",
+      "status": "1",
+      "slug": "Products-Testimonials-13",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "38",
+      "name": "cholesterol",
+      "status": "1",
+      "slug": "cholesterol-14",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "39",
+      "name": "insonnia",
+      "status": "1",
+      "slug": "insonnia-15",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "40",
+      "name": "rheumatism",
+      "status": "1",
+      "slug": "rheumatism-16",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "41",
+      "name": "pressure",
+      "status": "1",
+      "slug": "pressure-17",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "42",
+      "name": "Menstrual pains",
+      "status": "1",
+      "slug": "Menstrual-pains-18",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "43",
+      "name": "asthma",
+      "status": "1",
+      "slug": "asthma-19",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "44",
+      "name": "no sex",
+      "status": "1",
+      "slug": "no-sex-20",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "45",
+      "name": "weight loss",
+      "status": "1",
+      "slug": "weight-loss-21",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "46",
+      "name": "constipation",
+      "status": "1",
+      "slug": "constipation-22",
+      "private": "0",
+      "created_by": "1"
+    },
+    {
+      "id": "47",
+      "name": "Business Testimonials",
+      "status": "1",
+      "slug": "Business-Testimonials-23",
+      "private": "0",
+      "created_by": "1"
+    }
+  ]

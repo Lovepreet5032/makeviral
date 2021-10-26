@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+      android:background="@color/black"
+    tools:context="com.prouman.omspages.PageDetail">
+    <RelativeLayout
+        android:id="@+id/layout_top"
+        android:layout_width="match_parent"
+        android:layout_height="40.0dip"
+        android:background="@color/toolbar_color">
+
+        <ImageView
+            android:id="@+id/layout_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_keyboard_arrow_left_white_24dp"
+
+            />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_centerInParent="true"
+            android:text="@string/pages"
+            android:textColor="@android:color/white"
+            android:textSize="16.0sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recycler_pagedetail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent_app"
+    android:layout_below="@+id/layout_top"></androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>
