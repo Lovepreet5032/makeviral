@@ -8,7 +8,7 @@
         android:id="@+id/layout_top"
         android:layout_width="match_parent"
         android:layout_height="50.0dip"
-        android:background="@color/colorBackground">
+        android:background="@color/toolbar_color">
 
 
         <TextView
@@ -42,28 +42,30 @@
 
 
     </RelativeLayout>
+
     <LinearLayout
         android:id="@+id/contact_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="50dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginLeft="1dp"
         android:layout_below="@+id/layout_top"
-        android:orientation="horizontal"
-        android:background="#55ffffff">
-    <LinearLayout
-        android:id="@+id/contact_number1"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="1dp"
         android:layout_marginLeft="1dp"
-        android:orientation="vertical">
+        android:layout_marginRight="1dp"
+        android:background="#55ffffff"
+        android:minHeight="50dp"
+        android:orientation="horizontal">
 
-     <!--   <TextView
+        <LinearLayout
+            android:id="@+id/contact_number1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <!--   <TextView
             android:text="TextView"
             android:padding="10dp"
             android:layout_width="wrap_content"
@@ -72,16 +74,17 @@
             android:textColor="@color/text_sendsms"
             android:id="@+id/textView7" />-->
 
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/contact_number2"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:paddingRight="8dp"
-        android:orientation="vertical">
+        </LinearLayout>
 
-        <!--   <TextView
+        <LinearLayout
+            android:id="@+id/contact_number2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingRight="8dp">
+
+            <!--   <TextView
                android:text="TextView"
                android:padding="10dp"
                android:layout_width="wrap_content"
@@ -90,7 +93,7 @@
                android:textColor="@color/text_sendsms"
                android:id="@+id/textView7" />-->
 
-    </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
     <RelativeLayout
         android:id="@+id/spinner_language"

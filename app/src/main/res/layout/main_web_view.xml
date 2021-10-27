@@ -69,7 +69,7 @@
                 android:layout_weight="1"
                 android:text=""
                 android:layout_alignParentRight="true"
-                android:src="@drawable/icon_viral_call"
+                android:src="@drawable/nav_call"
                 />
             <ImageView android:layout_width="48dp"
                 android:id="@+id/message"
@@ -77,7 +77,7 @@
                 android:layout_weight="1"
                 android:text=""
                 android:layout_alignParentRight="true"
-                android:src="@drawable/icon_viral_message"
+                android:src="@drawable/icon_msg_2"
                 />
             <ImageView android:layout_width="48dp"
                 android:id="@+id/share_tv"

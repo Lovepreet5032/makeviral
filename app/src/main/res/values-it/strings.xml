@@ -71,7 +71,7 @@
     <string name="disconnected">Contatti Inattivi</string>
     <string name="sync">Sincronizza Contatti</string>
     <string name="member">Member Area</string>
-    <string name="Viral_Message">SMS</string>
+    <string name="Viral_Message">Contatti Telefonici</string>
     <string name="premium_video">Video Privati</string>
     <string name="Accademy">Academy</string>
     <string name="Add_prospect">Aggiungi Contatto</string>
@@ -124,7 +124,7 @@
     <string name="Weight_loss">Perdita di peso</string>
     <string name="Constipation">Costipazione</string>
     <string name="Skincare">Cura della Pelle</string>
-    <string name="viral_mail">Invia</string>
+    <string name="viral_mail">Contatti Email</string>
     <string name="product_info">Informazioni sui Prodotti</string>
     <string name="accademy">Academy</string>
     <string name="form">Form</string>
@@ -232,4 +232,5 @@
 
     <string name="shop_life_wave">Shop LifeWave</string>
     <string name="iscriptive_prouman">Iscriviti a Prouman</string>
+    <string name="video_text">Video</string>
 </resources>

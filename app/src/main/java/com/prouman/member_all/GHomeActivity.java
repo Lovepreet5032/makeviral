@@ -877,7 +877,7 @@ public class GHomeActivity extends AppCompatActivity {
       //  rowListItem.add(new HomeItemObjectModel(R.string.product_info, R.drawable.icon_product_info,"","",form));
         //rowListItem.add(new HomeItemObjectModel(R.string.pro_testominal, R.drawable.icon_product_testimonial,"","",form));
         //rowListItem.add(new HomeItemObjectModel(R.string.business_testominals, R.drawable.icon_business_testimonial,"","",form));
-        rowListItem.add(new HomeItemObjectModel(R.string.video_directory, R.drawable.video_icon,"","",form));
+        rowListItem.add(new HomeItemObjectModel(R.string.video_text, R.drawable.video_icon,"","",form));
         rowListItem.add(new HomeItemObjectModel(R.string.video_hub, R.drawable.tutti_video_icon,"","",form));
         //rowListItem.add(new HomeItemObjectModel(R.string.shop_product, R.drawable.icon_shop,"","",form));
         //rowListItem.add(new HomeItemObjectModel(R.string.accademy, R.drawable.icon_accademy,"","",form));
@@ -938,7 +938,7 @@ public class GHomeActivity extends AppCompatActivity {
                         inte.putExtras(args);
                         startActivity(inte);
                         break;
-                    case R.string.video_directory:
+                    case R.string.video_text:
                         Bundle bundle = new Bundle();
                         bundle.putString("catID", "48");
                         Intent video = new Intent(GHomeActivity.this, VideoDirectory.class);
@@ -1000,8 +1000,8 @@ public class GHomeActivity extends AppCompatActivity {
                         break;
 
                     case R.string.join_kyani:
-                        if(!"null".equalsIgnoreCase(sharedPreferences.getString(PrefrencesConstant.oms_referral_nocopy_link, "null"))) {
-                            startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.oms_referral_nocopy_link, ""))));
+                        if(!"null".equalsIgnoreCase(sharedPreferences.getString(PrefrencesConstant.shop_pro_link, "null"))) {
+                            startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.shop_pro_link, ""))));
                         }
                         else {Toast.makeText(GHomeActivity.this,"Link is empty",Toast.LENGTH_LONG).show();}
                         break;

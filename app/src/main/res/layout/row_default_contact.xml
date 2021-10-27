@@ -88,7 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_alignParentBottom="true"
-            android:background="#667497"
+            android:background="@color/toolbar_color"
             android:gravity="center"
             >
 

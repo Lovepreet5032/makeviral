@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,7 +11,7 @@
             android:id="@+id/layout_top"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="#ff313853">
+            android:background="@color/toolbar_color">
 
            <!-- <RelativeLayout
                 android:id="@+id/layout_back_to_guest"
@@ -39,7 +40,8 @@
                 android:textStyle="bold"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/text_guest_right_menu_title"
-                android:layout_toEndOf="@+id/text_guest_right_menu_title" />
+                android:layout_toEndOf="@+id/text_guest_right_menu_title"
+                tools:ignore="UnknownIdInLayout" />
         </RelativeLayout>
    <!-- <LinearLayout
         android:layout_width="match_parent"
@@ -281,7 +283,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/iscriptive_prouman"
+                android:text="@string/join_kyani"
                 android:textAlignment="gravity"
                 android:gravity="center_horizontal"
                 android:layout_gravity="center_horizontal"

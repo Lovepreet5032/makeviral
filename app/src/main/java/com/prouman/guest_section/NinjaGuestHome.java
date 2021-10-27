@@ -459,7 +459,7 @@ public class    NinjaGuestHome extends AppCompatActivity {
                     case R.string.pro_testominal:
                         startActivity(new Intent(NinjaGuestHome.this,ProductTestominal.class));
                         break;
-                    case R.string.video_directory:
+                    case R.string.video_text:
                         Bundle bundle = new Bundle();
                         bundle.putString("catID", "48");
                         Intent video = new Intent(NinjaGuestHome.this, VideoDirectory.class);
@@ -641,7 +641,7 @@ public class    NinjaGuestHome extends AppCompatActivity {
     }
     private List<ItemObject> getAllItemList() {
         List<ItemObject> allItems = new ArrayList();
-        allItems.add(new ItemObject(R.string.video_directory, R.drawable.video_icon));
+        allItems.add(new ItemObject(R.string.video_text, R.drawable.video_icon));
         allItems.add(new ItemObject(R.string.join_kyani, R.drawable.round_prouman));
         allItems.add(new ItemObject(R.string.shop, R.drawable.shop_icon));
         allItems.add(new ItemObject(R.string.life_wave, R.drawable.life_wave));

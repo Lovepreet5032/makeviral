@@ -50,8 +50,8 @@
 
             <Button
                 android:id="@+id/btn_setting"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
+                android:layout_width="67dp"
+                android:layout_height="67dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
                 android:background="@drawable/icon_settings"
@@ -59,11 +59,11 @@
 
             <Button
                 android:id="@+id/btn_push"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
-                android:background="@drawable/icon_msg_2"
+                android:background="@drawable/notification_grey_icon"
                 android:gravity="center" />
         </LinearLayout>
 
