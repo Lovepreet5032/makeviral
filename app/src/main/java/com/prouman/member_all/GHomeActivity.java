@@ -17,6 +17,7 @@ import android.provider.Telephony;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
@@ -79,6 +80,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.prouman.R.id.tv_contactName;
@@ -92,18 +94,18 @@ public class GHomeActivity extends AppCompatActivity {
 
     String uproAffLink;
     String uproShopLink;
-    String upro_ref, upro_id,distributorid;
+    String upro_ref, upro_id, distributorid;
     // String count;
     ImageView drawImage;
-    LinearLayout layout_call,layout_message,layout_website,layout_email,layout_joinus;
-    TextView txt_phonenumber,text_email,txt_weburl;
-    TextView  emailTv, phoneTv, contactName, header_TV;//phoneNumber,//emailName
-    ImageView phoneIcon , contactImage, backBtn;//chatIcon,emailIcon
-    Button  connectContBtn, disConnectBtn;//joinBtn
+    LinearLayout layout_call, layout_message, layout_website, layout_email, layout_joinus;
+    TextView txt_phonenumber, text_email, txt_weburl;
+    TextView emailTv, phoneTv, contactName, header_TV;//phoneNumber,//emailName
+    ImageView phoneIcon, contactImage, backBtn;//chatIcon,emailIcon
+    Button connectContBtn, disConnectBtn;//joinBtn
 
     private String websiteUrl;
     private ArrayList<FormData> students;
-    TextView user_total_prospects,user_growth,user_last24hours_prospects;
+    TextView user_total_prospects, user_growth, user_last24hours_prospects;
     String firstName;
     Button home, logBtn, callBtn, settingBtn, pushBtn;//msg
     String imgUrl;
@@ -115,13 +117,13 @@ public class GHomeActivity extends AppCompatActivity {
 
     CircleImageView toolImg;
     CircleImageView imageView_profile;
-    TextView toolText,titleTv;
+    TextView toolText, titleTv;
     TextView tvLast;
     TextView tvName;
     TextView tvPhoneNumber;
-    TextView user_name,txt_Logout,home_left_drawer;
+    TextView user_name, txt_Logout, home_left_drawer;
     TextView user_distributerid;
-    TextView txt_pages,contact_manager,tags,group_ofcontacts;
+    TextView txt_pages, contact_manager, tags, group_ofcontacts;
     //TextView txtwebsiteurl;
 
 
@@ -143,10 +145,10 @@ public class GHomeActivity extends AppCompatActivity {
     GridView androidGridView;
     // Button btn_website;
     private static final int PERMISSIONS_REQUEST_READ_PHONE_STATE = 999;
-    private static final int PERMISSIONS_REQUEST_GETACCOUNT= 1000;
+    private static final int PERMISSIONS_REQUEST_GETACCOUNT = 1000;
     private TelephonyManager mTelephonyManager;
-    MemeberCustomGridView adapterViewAndroid=null;
-    AlertDialog alertDialog=null;
+    MemeberCustomGridView adapterViewAndroid = null;
+    AlertDialog alertDialog = null;
   /*  String[] gridViewString = {
             this.getString(R.string.viral_mail),this.getString(R.string.Viral_Message),this.getString(R.string.product_info),
            this.getString(R.string.pro_testominal),this.getString(R.string.private_video),
@@ -161,8 +163,9 @@ public class GHomeActivity extends AppCompatActivity {
 
     private RelativeLayout topLayout;
     private String hash;
-    String mPhoneNumber="";
-    String deviceEmailId="";
+    String mPhoneNumber = "";
+    String deviceEmailId = "";
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //  FirebaseMessaging.getInstance();
@@ -192,10 +195,10 @@ public class GHomeActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
         String status = session.getPreferences(GHomeActivity.this, "status");
         sharedPreferences = this.getSharedPreferences("MyPref", 0);
-        user_total_prospects.setText(sharedPreferences.getString(PrefrencesConstant.total_prospects,"0"));
-        user_growth.setText(sharedPreferences.getString(PrefrencesConstant.growth_rate,"0%"));
-        user_last24hours_prospects.setText(sharedPreferences.getString(PrefrencesConstant.last_prospects,"0"));
-        distributorid= sharedPreferences.getString("Lupro_distributor_id",null);
+        user_total_prospects.setText(sharedPreferences.getString(PrefrencesConstant.total_prospects, "0"));
+        user_growth.setText(sharedPreferences.getString(PrefrencesConstant.growth_rate, "0%"));
+        user_last24hours_prospects.setText(sharedPreferences.getString(PrefrencesConstant.last_prospects, "0"));
+        distributorid = sharedPreferences.getString("Lupro_distributor_id", null);
         if (status.equals("1")) {
             upro_id = sharedPreferences.getString(PrefrencesConstant.uproid, null);
             hash = sharedPreferences.getString(PrefrencesConstant.hash, null);
@@ -204,14 +207,14 @@ public class GHomeActivity extends AppCompatActivity {
             lastName = sharedPreferences.getString("LName", null);
             phone = sharedPreferences.getString("Phone", null);
             img_name = sharedPreferences.getString("imgName", null);
-            sEmailId= sharedPreferences.getString("upro_main_email", null);
+            sEmailId = sharedPreferences.getString("upro_main_email", null);
             websiteUrl = sharedPreferences.getString("upro_subdomain_link", null);
             // txtwebsiteurl.setText(websiteUrl);
         } else {
             Intent intent = getIntent();
             if (intent != null) {
                 Bundle extras = intent.getExtras();
-                if(extras!=null) {
+                if (extras != null) {
                     firstName = extras.getString("FName");
                     lastName = extras.getString("LName");
                     phone = extras.getString("Phone");
@@ -265,7 +268,7 @@ public class GHomeActivity extends AppCompatActivity {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 
 
-       // View header = navigationView.getHeaderView(0);
+        // View header = navigationView.getHeaderView(0);
         headerImage = (CircleImageView) findViewById(R.id.imageView);
         Picasso.with(this).load(imgUrl).placeholder(R.drawable.round_corner).into(headerImage);
         headerImage.setOnClickListener(new View.OnClickListener() {
@@ -274,28 +277,27 @@ public class GHomeActivity extends AppCompatActivity {
                 startActivity(new Intent(GHomeActivity.this, ContactActivity.class));
             }
         });
-        TextView headerTitle = (TextView)findViewById(R.id.header_name);
-        headerTitle.setText(firstName+" "+lastName);
+        TextView headerTitle = (TextView) findViewById(R.id.header_name);
+        headerTitle.setText(firstName + " " + lastName);
         TextView headetID = (TextView) findViewById(R.id.memebr_id);
         headetID.setText(distributorid);
-        titleTv.setText(firstName+" "+lastName);
-        user_name.setText(firstName+" "+lastName);
+        titleTv.setText(firstName + " " + lastName);
+        user_name.setText(firstName + " " + lastName);
         user_distributerid.setText(distributorid);
        /* TextView headerPlace = (TextView) header.findViewById(R.id.memebr_place);
 
         headerPlace.setText("Italy");*/
         txt_phonenumber.setText(phone);
         text_email.setText(sEmailId);
-        if(null!=websiteUrl)
-        {
+        if (null != websiteUrl) {
             URI uri = null;
             try {
-                String strSplit[]=websiteUrl.split("//");
-                if(strSplit.length>1)
-                {
+                String strSplit[] = websiteUrl.split("//");
+                if (strSplit.length > 1) {
                     txt_weburl.setText(strSplit[1]);
+                } else {
+                    txt_weburl.setText(strSplit[0]);
                 }
-                else{txt_weburl.setText(strSplit[0]);}
                 uri = new URI(websiteUrl);
                 String path = uri.getPath();
 
@@ -359,7 +361,7 @@ public class GHomeActivity extends AppCompatActivity {
                         });
 
 
-                alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+                alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //  finish();
@@ -367,7 +369,7 @@ public class GHomeActivity extends AppCompatActivity {
                     }
                 });
 
-                alertDialog= alertDialogBuilder.create();
+                alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
 
             }
@@ -384,7 +386,7 @@ public class GHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(GHomeActivity.this, LoginUserNotificationList.class);
-                i.putExtra("index",2);
+                i.putExtra("index", 2);
                 startActivity(i);
                 drawer.closeDrawers();
             }
@@ -428,14 +430,14 @@ public class GHomeActivity extends AppCompatActivity {
         txt_pages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-        startActivity(new Intent(GHomeActivity.this, PagesMainActivity.class));
+                startActivity(new Intent(GHomeActivity.this, PagesMainActivity.class));
             }
         });
         group_ofcontacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(GHomeActivity.this,GroupListActivity.class));
-                        //.putExtra("tittle",getResources().getString(R.string.video_capture_pages)));
+                startActivity(new Intent(GHomeActivity.this, GroupListActivity.class));
+                //.putExtra("tittle",getResources().getString(R.string.video_capture_pages)));
             }
         });
         tags.setOnClickListener(new View.OnClickListener() {
@@ -477,7 +479,7 @@ public class GHomeActivity extends AppCompatActivity {
                         });
 
 
-                alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+                alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //  finish();
@@ -485,7 +487,7 @@ public class GHomeActivity extends AppCompatActivity {
                     }
                 });
 
-                alertDialog= alertDialogBuilder.create();
+                alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
             }
         });
@@ -493,37 +495,37 @@ public class GHomeActivity extends AppCompatActivity {
 
     private void initView() {
         //btn_website=(Button)findViewById(R.id.btn_website);
-        txt_phonenumber=(TextView) findViewById(R.id.txt_phonenumber);
-        user_total_prospects= (TextView) findViewById(R.id.user_total_prospects);
-        user_growth= (TextView) findViewById(R.id.user_growth);
-        user_last24hours_prospects= (TextView) findViewById(R.id.user_last24hours_prospects);
-        txt_phonenumber=(TextView) findViewById(R.id.txt_phonenumber);
-        text_email=(TextView) findViewById(R.id.text_email);
-        txt_Logout=(TextView) findViewById(R.id.txt_Logout);
-        txt_weburl=(TextView) findViewById(R.id.txt_weburl);
-        layout_message=(LinearLayout)findViewById(R.id.layout_message);
-        layout_website=(LinearLayout)findViewById(R.id.layout_website);
-        layout_email=(LinearLayout)findViewById(R.id.layout_email);
-        layout_joinus=(LinearLayout)findViewById(R.id.layout_joinus);
-        layout_call=(LinearLayout)findViewById(R.id.layout_call);
+        txt_phonenumber = (TextView) findViewById(R.id.txt_phonenumber);
+        user_total_prospects = (TextView) findViewById(R.id.user_total_prospects);
+        user_growth = (TextView) findViewById(R.id.user_growth);
+        user_last24hours_prospects = (TextView) findViewById(R.id.user_last24hours_prospects);
+        txt_phonenumber = (TextView) findViewById(R.id.txt_phonenumber);
+        text_email = (TextView) findViewById(R.id.text_email);
+        txt_Logout = (TextView) findViewById(R.id.txt_Logout);
+        txt_weburl = (TextView) findViewById(R.id.txt_weburl);
+        layout_message = (LinearLayout) findViewById(R.id.layout_message);
+        layout_website = (LinearLayout) findViewById(R.id.layout_website);
+        layout_email = (LinearLayout) findViewById(R.id.layout_email);
+        layout_joinus = (LinearLayout) findViewById(R.id.layout_joinus);
+        layout_call = (LinearLayout) findViewById(R.id.layout_call);
         phoneIcon = (ImageView) findViewById(R.id.call_icon);
-        home_left_drawer=(TextView)findViewById(R.id.home_left_drawer);
-        user_name=(TextView) findViewById(R.id.user_name);
-        txt_pages=(TextView) findViewById(R.id.txt_pages);
-        group_ofcontacts=(TextView) findViewById(R.id.group_ofcontacts);
-        contact_manager=(TextView)findViewById(R.id.contact_manager);
-        tags=(TextView)findViewById(R.id.tags);
-        user_distributerid=(TextView) findViewById(R.id.user_distributerid);
+        home_left_drawer = (TextView) findViewById(R.id.home_left_drawer);
+        user_name = (TextView) findViewById(R.id.user_name);
+        txt_pages = (TextView) findViewById(R.id.txt_pages);
+        group_ofcontacts = (TextView) findViewById(R.id.group_ofcontacts);
+        contact_manager = (TextView) findViewById(R.id.contact_manager);
+        tags = (TextView) findViewById(R.id.tags);
+        user_distributerid = (TextView) findViewById(R.id.user_distributerid);
         // chatIcon = (ImageView) findViewById(R.id.msg_icon);
-        titleTv=(TextView)findViewById(R.id.titleTv);
+        titleTv = (TextView) findViewById(R.id.titleTv);
         //backToGuest = (LinearLayout) findViewById(R.id.layout_back_to_guest);
         topLayout = ((RelativeLayout) findViewById(R.id.layout_top));
         //  txtwebsiteurl = (TextView) findViewById(R.id.txtwebsiteurl);
         drawImage = (ImageView) findViewById(R.id.menu_icon_iv);
 //        phoneNumber = (TextView) findViewById(R.id.phone_number);
-       // emailName = (TextView) findViewById(R.id.emailName);
+        // emailName = (TextView) findViewById(R.id.emailName);
         toolImg = (CircleImageView) findViewById(R.id.layout_logo);
-        imageView_profile=(CircleImageView)findViewById(R.id.imageView_profile);
+        imageView_profile = (CircleImageView) findViewById(R.id.imageView_profile);
         contactImage = (ImageView) findViewById(R.id.contact_image);
         //joinBtn = (Button) findViewById(R.id.change_language);
         contactName = (TextView) findViewById(R.id.contactName);
@@ -570,8 +572,8 @@ public class GHomeActivity extends AppCompatActivity {
         layout_call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             //   onCall();
-                shareIntent(lastName+" "+firstName+":"+phone);
+                //   onCall();
+                shareIntent(lastName + " " + firstName + ":" + phone);
             }
         });
         layout_email.setOnClickListener(new View.OnClickListener() {
@@ -579,7 +581,7 @@ public class GHomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //sendSMS();
                 //sendEmail();
-                shareIntent(lastName+" "+firstName+":"+sEmailId);
+                shareIntent(lastName + " " + firstName + ":" + sEmailId);
             }
         });
         layout_website.setOnClickListener(new View.OnClickListener() {
@@ -672,13 +674,11 @@ public class GHomeActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{Manifest.permission.GET_ACCOUNTS}, PERMISSIONS_REQUEST_GETACCOUNT);
             //After this point you wait for callback in onRequestPermissionsResult(int, String[], int[]) overriden method
-        }
-        else
-        {
-            deviceEmailId=getEmiailID();
+        } else {
+            deviceEmailId = getEmiailID();
         }
         mTelephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        deviceid= "";//mTelephonyManager.getDeviceId();
+        deviceid = "";//mTelephonyManager.getDeviceId();
         try {
             mPhoneNumber = mTelephonyManager.getLine1Number();
 //            if(mPhoneNumber.equals(""))
@@ -706,11 +706,13 @@ public class GHomeActivity extends AppCompatActivity {
 ////               }
 ////                final String rawNumber =  mTelephonyManager.getLine1Number();
 //  // }
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
 
         Log.d("msg", "DeviceImei " + deviceid);
         return deviceid;
     }
+
     private String getEmiailID() {
         AccountManager accountManager = AccountManager.get(getApplicationContext());
         Account account = getAccount(accountManager);
@@ -731,6 +733,7 @@ public class GHomeActivity extends AppCompatActivity {
         }
         return account;
     }
+
     public void sendToken() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE}, PERMISSIONS_REQUEST_READ_PHONE_STATE);
@@ -739,7 +742,7 @@ public class GHomeActivity extends AppCompatActivity {
             // Android version is lesser than 6.0 or the permission is already granted.
             getDeviceImei();
             final SessionManager sessionManager = new SessionManager(GHomeActivity.this);
-            final ProgressDialog  progressDialog = new ProgressDialog(this, R.style.AppTheme_Dark_Dialog);
+            final ProgressDialog progressDialog = new ProgressDialog(this, R.style.AppTheme_Dark_Dialog);
             progressDialog.setIndeterminate(true);
             progressDialog.setMessage("Login Into Member Account......");
             progressDialog.show();
@@ -755,7 +758,7 @@ public class GHomeActivity extends AppCompatActivity {
                         JSONObject jsonObject = new JSONObject(response);
                         if (jsonObject.getString("success").equals("true")) {
                             sessionManager.setIsTokenRegister(true);
-                            AppConstant.count=Integer.parseInt(jsonObject.getString("push_count"));
+                            AppConstant.count = Integer.parseInt(jsonObject.getString("push_count"));
                             // count=String.valueOf(AppConstant.count);
                             getForms();
                         } else {
@@ -789,8 +792,8 @@ public class GHomeActivity extends AppCompatActivity {
                     params.put("hash", sharedPreferences.getString(PrefrencesConstant.hash, null));
                     params.put("device", "a");
                     params.put("imei", getDeviceImei());
-                    params.put("email","");
-                    params.put("phone",mPhoneNumber);
+                    params.put("email", "");
+                    params.put("phone", mPhoneNumber);
                     params.put("reg_id", regId);//sessionManager.getGCMToken());
                     return params;
                 }
@@ -808,7 +811,7 @@ public class GHomeActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
                                            int[] grantResults) {
-        if ((requestCode == PERMISSIONS_REQUEST_READ_PHONE_STATE || requestCode ==  PERMISSIONS_REQUEST_GETACCOUNT)
+        if ((requestCode == PERMISSIONS_REQUEST_READ_PHONE_STATE || requestCode == PERMISSIONS_REQUEST_GETACCOUNT)
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             sendToken();
         } else {
@@ -819,22 +822,24 @@ public class GHomeActivity extends AppCompatActivity {
 
     public void getForms() {
         final SessionManager sessionManager = new SessionManager(GHomeActivity.this);
-        final  ProgressDialog progressDialog = new ProgressDialog(this, R.style.AppTheme_Dark_Dialog);
+        final ProgressDialog progressDialog = new ProgressDialog(this, R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Getting home icons......");
         progressDialog.show();
         SharedPreferences pref = getApplicationContext().getSharedPreferences(Config.SHARED_PREF, 0);
         final String regId = pref.getString("regId", null);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST,ConfigURL.GETHOME_Forms, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, ConfigURL.GETHOME_Forms, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 JSONObject j = null;
-                if(progressDialog!=null){progressDialog.dismiss();}
+                if (progressDialog != null) {
+                    progressDialog.dismiss();
+                }
                 try {
                     //Parsing the fetched Json String to JSON Object
                     j = new JSONObject(response);
-                    Gson gson=new Gson();
-                    FormDataObject formDataObject=gson.fromJson(response, FormDataObject.class);
+                    Gson gson = new Gson();
+                    FormDataObject formDataObject = gson.fromJson(response, FormDataObject.class);
                     //Storing the Array of JSON String to our JSON Array
                     // result = j.getJSONArray("forms");
 
@@ -871,39 +876,39 @@ public class GHomeActivity extends AppCompatActivity {
 
     private void getAllItemList(FormDataObject dataObject) {
         rowListItem = new ArrayList();
-        Form form=null;
-        rowListItem.add(new HomeItemObjectModel(R.string.viral_mail,R.drawable.mail_icon,"","",form));
-        rowListItem.add(new HomeItemObjectModel(R.string.Viral_Message, R.drawable.sms_icon,"","",form));
-      //  rowListItem.add(new HomeItemObjectModel(R.string.product_info, R.drawable.icon_product_info,"","",form));
+        Form form = null;
+        rowListItem.add(new HomeItemObjectModel(R.string.viral_mail, R.drawable.mail_icon, "", "", form));
+        rowListItem.add(new HomeItemObjectModel(R.string.Viral_Message, R.drawable.sms_icon, "", "", form));
+        //  rowListItem.add(new HomeItemObjectModel(R.string.product_info, R.drawable.icon_product_info,"","",form));
         //rowListItem.add(new HomeItemObjectModel(R.string.pro_testominal, R.drawable.icon_product_testimonial,"","",form));
         //rowListItem.add(new HomeItemObjectModel(R.string.business_testominals, R.drawable.icon_business_testimonial,"","",form));
-        rowListItem.add(new HomeItemObjectModel(R.string.video_text, R.drawable.video_icon,"","",form));
-        rowListItem.add(new HomeItemObjectModel(R.string.video_hub, R.drawable.tutti_video_icon,"","",form));
+        rowListItem.add(new HomeItemObjectModel(R.string.video_text, R.drawable.video_icon, "", "", form));
+        rowListItem.add(new HomeItemObjectModel(R.string.video_hub, R.drawable.tutti_video_icon, "", "", form));
         //rowListItem.add(new HomeItemObjectModel(R.string.shop_product, R.drawable.icon_shop,"","",form));
         //rowListItem.add(new HomeItemObjectModel(R.string.accademy, R.drawable.icon_accademy,"","",form));
         //allItems.add(new HomeItemObjectModel(R.string.Funne_business,R.drawable.funnel_business));
         //allItems.add(new HomeItemObjectModel(R.string.Funnel_prodotto, R.drawable.funnel_prodicts));
-        rowListItem.add(new HomeItemObjectModel(R.string.form, R.drawable.form_icon,"","",form));
-        if(dataObject!=null&&dataObject.getForms()!=null) {
+        rowListItem.add(new HomeItemObjectModel(R.string.form, R.drawable.form_icon, "", "", form));
+        if (dataObject != null && dataObject.getForms() != null) {
             for (int i = 0; i < dataObject.getForms().size(); i++) {
                 Form dform = dataObject.getForms().get(i);
                 rowListItem.add(new HomeItemObjectModel(0, 0, dform.getApp_home_icon(), dform.getGetApp_home_title(), dform));
             }
         }
-       // rowListItem.add(new HomeItemObjectModel(Podcast, R.drawable.icon_podcast,"","",form));
-      //  rowListItem.add(new HomeItemObjectModel(Webinar, R.drawable.icon_webinar,"","",form));
-        rowListItem.add(new HomeItemObjectModel(R.string.join_kyani, R.drawable.round_prouman,"","",form));
-        rowListItem.add(new HomeItemObjectModel(R.string.shop, R.drawable.shop_icon,"","",form));
-        rowListItem.add(new HomeItemObjectModel(R.string.life_wave, R.drawable.life_wave,"","",form));
-        rowListItem.add(new HomeItemObjectModel(R.string.shop_life_wave, R.drawable.shop_life_wave,"","",form));
-        rowListItem.add(new HomeItemObjectModel(R.string.notification, R.drawable.notification_icon,"","",form));
+        // rowListItem.add(new HomeItemObjectModel(Podcast, R.drawable.icon_podcast,"","",form));
+        //  rowListItem.add(new HomeItemObjectModel(Webinar, R.drawable.icon_webinar,"","",form));
+        rowListItem.add(new HomeItemObjectModel(R.string.join_kyani, R.drawable.round_prouman, "", "", form));
+        rowListItem.add(new HomeItemObjectModel(R.string.shop_prouman, R.drawable.shop_icon, "", "", form));
+        rowListItem.add(new HomeItemObjectModel(R.string.life_wave, R.drawable.life_wave, "", "", form));
+        rowListItem.add(new HomeItemObjectModel(R.string.shop_life_wave, R.drawable.shop_life_wave, "", "", form));
+        rowListItem.add(new HomeItemObjectModel(R.string.notification, R.drawable.notification_icon, "", "", form));
         //rowListItem.add(new HomeItemObjectModel(R.string.viral_ninja, R.drawable.icon_viral_ninja,"","",form));
         //rowListItem.add(new HomeItemObjectModel(R.string.kyani_main, R.drawable.icon_kyani,"","",form));
 //        rowListItem.add(new HomeItemObjectModel(R.string.prova, R.drawable.icon_pro,"","",form));
         //allItems.add(new HomeItemObjectModel(R.string.vip_card, R.drawable.vip_card));
         //  allItems.add(new HomeItemObjectModel(R.string.s_days_pack, R.drawable.seven_day));
 
-        adapterViewAndroid= new MemeberCustomGridView(GHomeActivity.this, rowListItem);
+        adapterViewAndroid = new MemeberCustomGridView(GHomeActivity.this, rowListItem);
         androidGridView = (GridView) findViewById(R.id.grid_view_image_text);
         androidGridView.setAdapter(adapterViewAndroid);
         androidGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -911,7 +916,7 @@ public class GHomeActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     final int position, long id) {
-                SharedPreferences sharedPreferences =GHomeActivity.this.getSharedPreferences("MyPref",0);
+                SharedPreferences sharedPreferences = GHomeActivity.this.getSharedPreferences("MyPref", 0);
                 switch (rowListItem.get(position).getName()) {
                     case R.string.viral_mail:
                         Intent intent = new Intent(GHomeActivity.this, TestDbActivity.class);
@@ -934,7 +939,7 @@ public class GHomeActivity extends AppCompatActivity {
                         Bundle args = new Bundle();
                         args.putString("catID", "47");
                         Intent inte = new Intent(GHomeActivity.this, MemSecVideoActivity.class);
-                        AppConstant.videoscreentitle=getString(R.string.business_testominals);
+                        AppConstant.videoscreentitle = getString(R.string.business_testominals);
                         inte.putExtras(args);
                         startActivity(inte);
                         break;
@@ -942,16 +947,16 @@ public class GHomeActivity extends AppCompatActivity {
                         Bundle bundle = new Bundle();
                         bundle.putString("catID", "48");
                         Intent video = new Intent(GHomeActivity.this, VideoDirectory.class);
-                        AppConstant.videoscreentitle=getString(R.string.premium_video);
+                        AppConstant.videoscreentitle = getString(R.string.premium_video);
                         video.putExtras(bundle);
                         startActivity(video);
                         break;
                     case R.string.video_hub:
                         Bundle hbundle = new Bundle();
-                        hbundle.putString("videoId","");
-                        hbundle.putString("title",getString(R.string.video_hub));
+                        hbundle.putString("videoId", "");
+                        hbundle.putString("title", getString(R.string.video_hub));
                         Intent hvideo = new Intent(GHomeActivity.this, VideoHub.class);
-                        AppConstant.videoscreentitle=getString(R.string.premium_video);
+                        AppConstant.videoscreentitle = getString(R.string.premium_video);
                         hvideo.putExtras(hbundle);
                         startActivity(hvideo);
                         break;
@@ -959,17 +964,19 @@ public class GHomeActivity extends AppCompatActivity {
                         startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString("Lupro_subdomain_link", ""))));
                         break;
                     case R.string.shop_life_wave:
-                        if(!"null".equalsIgnoreCase(sharedPreferences.getString("shop_link", "null"))) {
-                            startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString("shop_link", ""))));
+                        if (!"null".equalsIgnoreCase(sharedPreferences.getString("Lupro_subdomain_link", "null"))) {
+                            startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString("Lupro_subdomain_link", ""))));
+                        } else {
+                            Toast.makeText(GHomeActivity.this, "Link is empty", Toast.LENGTH_LONG).show();
                         }
-                        else {Toast.makeText(GHomeActivity.this,"Link is empty",Toast.LENGTH_LONG).show();}
                         //    startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.shop_link, ""))));
                         break;
                     case R.string.life_wave:
-                        if(!"null".equalsIgnoreCase(sharedPreferences.getString("G_uproAffLink", "null"))) {
+                        if (!"null".equalsIgnoreCase(sharedPreferences.getString("G_uproAffLink", "null"))) {
                             startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString("G_uproAffLink", ""))));
+                        } else {
+                            Toast.makeText(GHomeActivity.this, "Link is empty", Toast.LENGTH_LONG).show();
                         }
-                        else {Toast.makeText(GHomeActivity.this,"Link is empty",Toast.LENGTH_LONG).show();}
                         break;
                     case R.string.accademy:
                         startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString("Lacademy_link", ""))));
@@ -988,35 +995,35 @@ public class GHomeActivity extends AppCompatActivity {
                     case Podcast:
                         try {
                             startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString("Lpodcast_link", ""))));
+                        } catch (Exception e) {
+                            Toast.makeText(GHomeActivity.this, "error in link", Toast.LENGTH_LONG).show();
                         }
-                        catch (Exception e)
-                        {
-                            Toast.makeText(GHomeActivity.this,"error in link",Toast.LENGTH_LONG).show();
-                        }
-                            //startActivity(new Intent(GHomeActivity.this,PodcastActivity.class));
+                        //startActivity(new Intent(GHomeActivity.this,PodcastActivity.class));
                         break;
                     case Webinar:
                         startActivity(new Intent(GHomeActivity.this, WebinarActivity.class));
                         break;
 
                     case R.string.join_kyani:
-                        if(!"null".equalsIgnoreCase(sharedPreferences.getString(PrefrencesConstant.shop_pro_link, "null"))) {
-                            startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.shop_pro_link, ""))));
+                        if (!"null".equalsIgnoreCase(sharedPreferences.getString(PrefrencesConstant.oms_referral_nocopy_link, "null"))) {
+                            startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.oms_referral_nocopy_link, ""))));
+                        } else {
+                            Toast.makeText(GHomeActivity.this, "Link is empty", Toast.LENGTH_LONG).show();
                         }
-                        else {Toast.makeText(GHomeActivity.this,"Link is empty",Toast.LENGTH_LONG).show();}
                         break;
                     case R.string.notification:
                         startActivity(new Intent(GHomeActivity.this, LoginUserNotificationList.class));
                         break;
                     case R.string.viral_ninja:
-                       // startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.memberviralninjalink,""))));
-                        if(!"null".equalsIgnoreCase(sharedPreferences.getString("upro_affiliation_link", "null"))) {
+                        // startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.memberviralninjalink,""))));
+                        if (!"null".equalsIgnoreCase(sharedPreferences.getString("upro_affiliation_link", "null"))) {
                             startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString("upro_affiliation_link", ""))));
+                        } else {
+                            Toast.makeText(GHomeActivity.this, "Link is empty", Toast.LENGTH_LONG).show();
                         }
-                        else {Toast.makeText(GHomeActivity.this,"Link is empty",Toast.LENGTH_LONG).show();}
                         break;
                     case R.string.kyani_main:
-                      //  startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.memeberKyanilink, ""))));
+                        //  startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.memeberKyanilink, ""))));
                         break;
                     case R.string.vip_card:
                         //  startActivity(new Intent(GHomeActivity.this,VipCardActivity.class));
@@ -1025,16 +1032,18 @@ public class GHomeActivity extends AppCompatActivity {
                     case R.string.s_days_pack:
                         // startActivity(new Intent(GHomeActivity.this,SevenDayActivity.class));
                         break;
-                    case R.string.shop:
-                        if(!"null".equalsIgnoreCase(sharedPreferences.getString(PrefrencesConstant.shop_pro_link, "null"))) {
-                            startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.shop_pro_link, ""))));
+                    case R.string.shop_prouman:
+                        if (!"null".equalsIgnoreCase(sharedPreferences.getString(PrefrencesConstant.shop_link, "null"))) {
+                            startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.shop_link, ""))));
+                        } else {
+                            Toast.makeText(GHomeActivity.this, "Link is empty", Toast.LENGTH_LONG).show();
                         }
-                        else {Toast.makeText(GHomeActivity.this,"Link is empty",Toast.LENGTH_LONG).show();}
+
                         //    startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.shop_link, ""))));
                         break;
                     default:
                         Intent dynamicintent = new Intent(GHomeActivity.this, DynamicForm.class);
-                        dynamicintent.putExtra("form_fields",rowListItem.get(position).getForm());
+                        dynamicintent.putExtra("form_fields", rowListItem.get(position).getForm());
                         startActivity(dynamicintent);
                         break;
 
@@ -1071,16 +1080,17 @@ public class GHomeActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if(AppConstant.isLanguagechanged)
-        {
-            AppConstant.isLanguagechanged=false;
-            AppConstant.setLanguageForApp(session.getString(AppConstant.STRINGLANGUAGE,""),GHomeActivity.this);
+        if (AppConstant.isLanguagechanged) {
+            AppConstant.isLanguagechanged = false;
+            AppConstant.setLanguageForApp(session.getString(AppConstant.STRINGLANGUAGE, ""), GHomeActivity.this);
             finish();
             startActivity(getIntent());
         }
-        if(adapterViewAndroid!=null){
-            adapterViewAndroid.notifyDataSetChanged();}
+        if (adapterViewAndroid != null) {
+            adapterViewAndroid.notifyDataSetChanged();
+        }
     }
+
     private void onCall() {
         if (Build.VERSION.SDK_INT >= 19) {
             TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
@@ -1097,6 +1107,7 @@ public class GHomeActivity extends AppCompatActivity {
         callIntent.setData(Uri.parse(phone));
         startActivity(callIntent);
     }
+
     protected void sendEmail() {
         Log.i("Send email", "");
         String[] TO = {""};
@@ -1114,19 +1125,19 @@ public class GHomeActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
             return;
 
-        }
-        catch (android.content.ActivityNotFoundException ex) {
+        } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(GHomeActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
     }
+
     private void sendSMS() {
 
         if (Build.VERSION.SDK_INT >= 19) {
             String defaultSmsPackageName = Telephony.Sms.getDefaultSmsPackage(this);
-            Intent sendIntent = new Intent("android.intent.action.SEND", Uri.parse("tel:" +phone ));
-            sendIntent.putExtra("address",phone);
+            Intent sendIntent = new Intent("android.intent.action.SEND", Uri.parse("tel:" + phone));
+            sendIntent.putExtra("address", phone);
             sendIntent.setType("text/plain");
-            sendIntent.putExtra("android.intent.extra.TEXT","");
+            sendIntent.putExtra("android.intent.extra.TEXT", "");
             if (defaultSmsPackageName != null) {
                 sendIntent.setPackage(defaultSmsPackageName);
             }
@@ -1135,12 +1146,12 @@ public class GHomeActivity extends AppCompatActivity {
         }
         Intent smsIntent = new Intent("android.intent.action.VIEW");
         smsIntent.setType("vnd.android-dir/mms-sms");
-        smsIntent.putExtra("address",phone );
-        smsIntent.putExtra("sms_body","" );
+        smsIntent.putExtra("address", phone);
+        smsIntent.putExtra("sms_body", "");
         startActivity(smsIntent);
     }
-    private void shareIntent(String share)
-    {
+
+    private void shareIntent(String share) {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT, share);

@@ -215,7 +215,7 @@ public class GuestLoginActivity extends Fragment {
                         imgName = jsonObject1.getString("upro_photo");
                         uproRef = jsonObject1.getString("upro_referance");
                         affLink = jsonObject1.getString("upro_affiliation_link");
-                     //   shopLink = jsonObject1.getString("upro_shoplink");
+                        shopLink = jsonObject1.getString("upro_shoplink");
                         uproID = jsonObject1.getString("upro_id");
                         emailId = jsonObject1.getString("upro_main_email");
                         websiteUrl = jsonObject1.getString("upro_subdomain_link");
@@ -226,7 +226,7 @@ public class GuestLoginActivity extends Fragment {
                         bundle.putString("imgName", imgName);
                         bundle.putString("uproRef", uproRef);
                         bundle.putString("uproAffLink", affLink);
-                       // bundle.putString("uproShopLink", shopLink);
+                        bundle.putString("uproShopLink", shopLink);
                         bundle.putString("upro_main_email",emailId);
                         bundle.putString(PrefrencesConstant.uproid, uproID);
                         bundle.putString("websiteUrl", websiteUrl);

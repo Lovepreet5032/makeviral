@@ -88,8 +88,8 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
 
         sharedPreferences =ContactActivity.this.getSharedPreferences("MyPref",0);
         llShopLifeWave.setOnClickListener(v -> {
-            if(!"null".equalsIgnoreCase(sharedPreferences.getString("shop_link", "null"))) {
-                startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString("shop_link", ""))));
+            if(!"null".equalsIgnoreCase(sharedPreferences.getString(PrefrencesConstant.guestuproshoplink, "null"))) {
+                startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.guestuproshoplink, ""))));
             }
             else {Toast.makeText(ContactActivity.this,"Link is empty",Toast.LENGTH_LONG).show();}
         });
@@ -100,8 +100,8 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
             else {Toast.makeText(ContactActivity.this,"Link is empty",Toast.LENGTH_LONG).show();}
         });
         llShopProuman.setOnClickListener(v -> {
-            if(!"null".equalsIgnoreCase(sharedPreferences.getString(PrefrencesConstant.shop_pro_link, "null"))) {
-                startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.shop_pro_link, ""))));
+            if(!"null".equalsIgnoreCase(sharedPreferences.getString(PrefrencesConstant.shop_link, "null"))) {
+                startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.shop_link, ""))));
             }
             else {Toast.makeText(ContactActivity.this,"Link is empty",Toast.LENGTH_LONG).show();}
         });

@@ -245,6 +245,8 @@ LinearLayout llEdit2,llEdit1;
                             //    editor.putString(PrefrencesConstant.memberrsslink,jsonObject1.getString("rss_link"));
                           //      editor.putString("Lpodcast_link",jsonObject1.getString("podcast_link"));
                         editor.putString("Lupro_subdomain_link",jsonObject1.getString("upro_shoplink"));
+                        editor.putString(PrefrencesConstant.oms_referral_nocopy_link,jsonObject1.getString("oms_referral_nocopy_link"));
+                        editor.putString(PrefrencesConstant.guestuproshoplink,jsonObject1.getString("upro_shoplink"));
                         try{editor.putString("Lupro_distributor_id",jsonObject1.getString("upro_distributor_id"));
                             editor.putString("facebook_link",jsonObject1.getString("facebook_link"));
                             editor.putString("twitter_link",jsonObject1.getString("twitter_link"));

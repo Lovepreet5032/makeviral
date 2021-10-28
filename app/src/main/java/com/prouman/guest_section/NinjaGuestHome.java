@@ -476,16 +476,16 @@ public class    NinjaGuestHome extends AppCompatActivity {
                         startActivity(intent);
                         break;
 
-                    case R.string.shop:
-                        if(!"null".equalsIgnoreCase(sharedPreferences.getString(PrefrencesConstant.shop_link, "null"))) {
-                            startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.shop_link, ""))));
+                    case R.string.shop_prouman:
+                        if(!"null".equalsIgnoreCase(sharedPreferences.getString("shop_link", "null"))) {
+                            startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString("shop_link", ""))));
                         }
                         else {Toast.makeText(NinjaGuestHome.this,"Link is empty",Toast.LENGTH_LONG).show();}
                     //    startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.shop_link, ""))));
                         break;
                     case R.string.shop_life_wave:
-                        if(!"null".equalsIgnoreCase(sharedPreferences.getString("shop_link", "null"))) {
-                            startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString("shop_link", ""))));
+                        if(!"null".equalsIgnoreCase(sharedPreferences.getString(PrefrencesConstant.guestuproshoplink, "null"))) {
+                            startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.guestuproshoplink, ""))));
                         }
                         else {Toast.makeText(NinjaGuestHome.this,"Link is empty",Toast.LENGTH_LONG).show();}
                         //    startActivity(new Intent("android.intent.action.VIEW", Uri.parse(sharedPreferences.getString(PrefrencesConstant.shop_link, ""))));
@@ -643,7 +643,7 @@ public class    NinjaGuestHome extends AppCompatActivity {
         List<ItemObject> allItems = new ArrayList();
         allItems.add(new ItemObject(R.string.video_text, R.drawable.video_icon));
         allItems.add(new ItemObject(R.string.join_kyani, R.drawable.round_prouman));
-        allItems.add(new ItemObject(R.string.shop, R.drawable.shop_icon));
+        allItems.add(new ItemObject(R.string.shop_prouman, R.drawable.shop_icon));
         allItems.add(new ItemObject(R.string.life_wave, R.drawable.life_wave));
         allItems.add(new ItemObject(R.string.shop_life_wave, R.drawable.shop_life_wave));
       //  allItems.add(new ItemObject(Webinar,R.drawable.icon_webinar));
