@@ -26,6 +26,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -98,7 +99,9 @@ public class SmsActivity extends AppCompatActivity implements AdapterView.OnItem
     String hash;
     StringBuilder builderName;
     StringBuilder builderNumber;
-    private String messageTitle, messageBody;
+    StringBuilder builderEmail;
+
+    private String messageTitle, messageBody,msgSubject;
     CircleImageView profile_image;
     ImageView img_close;
     LinearLayout contact_number;
@@ -110,12 +113,14 @@ public class SmsActivity extends AppCompatActivity implements AdapterView.OnItem
     AllTemplatesCampigns radiobtnSelectedList;
     RadioGroup radio_message_type;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sms_message_list);
         // contactNmbr= (TextView)findViewById(R.id.textView7);
         sharedPreferences = this.getSharedPreferences("MyPref", 0);
+
         contact_number = (LinearLayout) findViewById(R.id.contact_number);
         contact_number1 = (LinearLayout) findViewById(R.id.contact_number1);
         contact_number2 = (LinearLayout) findViewById(R.id.contact_number2);
@@ -127,17 +132,15 @@ public class SmsActivity extends AppCompatActivity implements AdapterView.OnItem
         categorySpinner = (Spinner) findViewById(R.id.spinner);
         radio_message_type = (RadioGroup) findViewById(R.id.radio_message_type);
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        backBtn.setOnClickListener(v -> {
 
-                stock_list.clear();
+            stock_list.clear();
 
-                finish();
+            finish();
 
 
-            }
         });
+
 
         //Initializing the ArrayList
         students = new ArrayList<>();
@@ -158,6 +161,7 @@ public class SmsActivity extends AppCompatActivity implements AdapterView.OnItem
         }
         builderName = new StringBuilder();
         builderNumber = new StringBuilder();
+        builderEmail = new StringBuilder();
         setSelectedsmsLayout();
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -292,7 +296,8 @@ public class SmsActivity extends AppCompatActivity implements AdapterView.OnItem
             final ContactTest contactTest = stock_list.get(i);
             if (i == 0) {
                 builderName.append(contactTest.getName());
-                builderNumber.append(contactTest.getEmail_Id());
+                builderEmail.append(contactTest.getEmail_Id());
+                builderNumber.append(contactTest.getPhone());
                 contactNmbr.setText(contactTest.getName());
                 if ((contactTest.getContactImage()) != null) {
                     Bitmap contactImage = getContactImage(contactTest.getContactImage());
@@ -302,7 +307,8 @@ public class SmsActivity extends AppCompatActivity implements AdapterView.OnItem
                 }
             } else {
                 builderName.append("," + contactTest.getName());
-                builderNumber.append(";" + contactTest.getEmail_Id());
+                builderEmail.append(";" + contactTest.getEmail_Id());
+                builderNumber.append(";" + contactTest.getPhone());
                 contactNmbr.setText(contactTest.getName());
                 if ((contactTest.getContactImage()) != null) {
                     Bitmap contactImage = getContactImage(contactTest.getContactImage());
@@ -683,11 +689,50 @@ public class SmsActivity extends AppCompatActivity implements AdapterView.OnItem
                 holder.textView.setText(Html.fromHtml(messageModelTest.getBody()));
             }
 
+            holder.btnSend.setOnClickListener(v -> {
+                messageTitle = messageModelTest.getName();
+                messageBody = messageModelTest.getBody();
+                msgSubject = messageModelTest.getSubject();
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                        context);
+                alertDialogBuilder.setTitle("Choose an Option");
+                String[] options = {"SMS", "WhatsApp and others .."};
+                // set title
+                // alertDialogBuilder.setTitle("Your Title");
+                alertDialogBuilder.setItems(options, actionListener);
+                alertDialogBuilder.setNegativeButton("Cancel", null);
+                //actions = alertDialogBuilder.create();
+                // set dialog message
+   /* alertDialogBuilder
+            .setMessage("Click yes to exit!")
+            .setCancelable(false)
+            .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog,int id) {
+                    // if this button is clicked, close
+                    // current activity
+                   finish();
+                }
+            })
+            .setNegativeButton("No",new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog,int id) {
+                    // if this button is clicked, just close
+                    // the dialog box and do nothing
+                    dialog.cancel();
+                }
+            });
+*/
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
+            });
+
             // holder.titleTv.setText(messageModelTest.getSubject());
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    messageTitle = messageModelTest.getName();
+                   /* messageTitle = messageModelTest.getName();
                     messageBody = messageModelTest.getBody();
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                             context);
@@ -699,7 +744,7 @@ public class SmsActivity extends AppCompatActivity implements AdapterView.OnItem
                     alertDialogBuilder.setNegativeButton("Cancel", null);
                     //actions = alertDialogBuilder.create();
                     // set dialog message
-       /* alertDialogBuilder
+       *//* alertDialogBuilder
                 .setMessage("Click yes to exit!")
                 .setCancelable(false)
                 .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
@@ -716,12 +761,12 @@ public class SmsActivity extends AppCompatActivity implements AdapterView.OnItem
                         dialog.cancel();
                     }
                 });
-*/
+*//*
                     // create alert dialog
                     AlertDialog alertDialog = alertDialogBuilder.create();
 
                     // show it
-                    alertDialog.show();
+                    alertDialog.show();*/
                 }
       /*  AlertDialog.Builder builder = new AlertDialog.Builder(SmsActivity.this);
         builder.setTitle("Choose an Option");
@@ -756,20 +801,17 @@ public class SmsActivity extends AppCompatActivity implements AdapterView.OnItem
 
         }
 
-        DialogInterface.OnClickListener actionListener = new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch (which) {
-                    case 0:
-                        sendSMS();
-                        break;
-                    case 1:
-                        chooseIntent();
-                        break;
+        DialogInterface.OnClickListener actionListener = (dialog, which) -> {
+            switch (which) {
+                case 0:
+                    sendSMS();
+                    break;
+                case 1:
+                    chooseIntent();
+                    break;
 
-                    default:
-                        break;
-                }
+                default:
+                    break;
             }
         };
 
@@ -781,14 +823,14 @@ public class SmsActivity extends AppCompatActivity implements AdapterView.OnItem
         public class MyViewHolder extends RecyclerView.ViewHolder {
             TextView titleTv;
             TextView textView;
-            // Button button;
+             Button btnSend;
 
 
             public MyViewHolder(View itemView) {
                 super(itemView);
                 titleTv = (TextView) itemView.findViewById(R.id.txtTitle);
                 textView = (TextView) itemView.findViewById(R.id.txtText);
-                //button=(Button)itemView.findViewById(R.id.btnSale);
+                btnSend=(Button)itemView.findViewById(R.id.btnSend);
 
             }
         }
@@ -796,10 +838,23 @@ public class SmsActivity extends AppCompatActivity implements AdapterView.OnItem
 
     private void chooseIntent() {
         update_sentStatus();
-        List<Intent> targetedShareIntents = new ArrayList<Intent>();
+
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, messageBody);
+        sendIntent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
+
+
+        return;
+
+        /*List<Intent> targetedShareIntents = new ArrayList<Intent>();
 
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT, msgSubject);
         intent.putExtra(Intent.EXTRA_TEXT, messageBody);
 
         List<ResolveInfo> resInfo = this.getPackageManager().queryIntentActivities(intent, 0);
@@ -809,6 +864,7 @@ public class SmsActivity extends AppCompatActivity implements AdapterView.OnItem
 
             Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
             targetedShareIntent.setType("text/plain");
+            targetedShareIntent.putExtra(Intent.EXTRA_SUBJECT, msgSubject);
             targetedShareIntent.putExtra(Intent.EXTRA_TEXT, messageBody);
             targetedShareIntent.setPackage(packageName);
 
@@ -827,7 +883,7 @@ public class SmsActivity extends AppCompatActivity implements AdapterView.OnItem
         chooserIntent.putExtra(
                 Intent.EXTRA_INITIAL_INTENTS, targetedShareIntents.toArray(new Parcelable[]{}));
 
-        startActivity(chooserIntent);
+        startActivity(chooserIntent);*/
         // Intents with SEND action
     /*    PackageManager packageManager = getApplicationContext().getPackageManager();
         Intent sendIntent = new Intent(Intent.ACTION_SEND);

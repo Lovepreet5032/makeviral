@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.prouman.R;
@@ -125,10 +126,27 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
        }
         holder.webView.loadDataWithBaseURL(null, messageModels.get(position).getBody(), "text/html", "UTF-8", null);
         holder.titleTv.setText(messageModels.get(position).getSubject());
+        holder.btnSend.setOnClickListener(v -> {
+            messageBody=messageModels.get(position).getBody();
+            messageSubject=messageModels.get(position).getSubject();
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                    context);
+            alertDialogBuilder.setTitle("Choose an Option");
+            String[] options = {"Email","Share" };
+            // set title
+            // alertDialogBuilder.setTitle("Your Title");
+            alertDialogBuilder.setItems(options, actionListener);
+            alertDialogBuilder.setNegativeButton("Cancel", null);
+
+            AlertDialog alertDialog = alertDialogBuilder.create();
+
+            // show it
+            alertDialog.show();
+        });
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                messageBody=messageModels.get(position).getBody();
+                /*messageBody=messageModels.get(position).getBody();
                 messageSubject=messageModels.get(position).getSubject();
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                         context);
@@ -142,7 +160,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
                 AlertDialog alertDialog = alertDialogBuilder.create();
 
                 // show it
-                alertDialog.show();
+                alertDialog.show();*/
             }
         });
 
@@ -159,7 +177,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
         TextView titleTv;
         WebView webView;
         CardView cardView;
-       // Button button;
+        Button btnSend;
 
 
         public MyViewHolder(View itemView) {
@@ -167,6 +185,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
             titleTv =(TextView) itemView.findViewById(R.id.txtTitle);
             webView=(WebView) itemView.findViewById(R.id.webView);
             cardView=(CardView)itemView.findViewById(R.id.card_view);
+            btnSend=(Button)itemView.findViewById(R.id.btnSend);
             //button=(Button)itemView.findViewById(R.id.btnSale);
 
         }
@@ -176,10 +195,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
         public void onClick(DialogInterface dialog, int which) {
             switch (which) {
                 case 0:
-                    composeEmail(builderNumber.toString(),messageSubject,messageBody);
+                    composeEmail(builderNumber,messageSubject,messageBody);
                     break;
                 case 1:
-                    chooseIntent();
+                    chooseIntent(builderNumber,messageSubject);
                     break;
 
                 default:
@@ -206,22 +225,25 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
         smsIntent.putExtra("sms_body", messageBody);
         context.startActivity(smsIntent);
     }
-    private void chooseIntent() {
+    private void chooseIntent(String addresses, String subject) {
         List<Intent> targetedShareIntents = new ArrayList<Intent>();
 
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(messageBody).toString());
+        intent.setType("text/html");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{addresses});
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(messageBody));
 
         List<ResolveInfo> resInfo = context.getPackageManager().queryIntentActivities(intent, 0);
 
         for (ResolveInfo resolveInfo : resInfo) {
             String packageName = resolveInfo.activityInfo.packageName;
             Intent targetedShareIntent = new Intent(Intent.ACTION_SEND);
-            targetedShareIntent.setType("text/plain");
-            targetedShareIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(messageBody).toString());
+            targetedShareIntent.setType("text/html");
+            targetedShareIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{addresses});
+            targetedShareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+            targetedShareIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(messageBody));
             targetedShareIntent.setPackage(packageName);
-
 
             if (!packageName.equals("com.facebook.katana")) { // Remove Facebook Intent share
                 targetedShareIntents.add(targetedShareIntent);
@@ -286,7 +308,27 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
             contactVO.setEmailShared("1");
             db.updateSentStatus(contactVO,"1");
         }
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        /*Intent emailIntent = new Intent(Intent.ACTION_SENDTO,
+                Uri.fromParts("mailto",addresses, null));
+        emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);
+        // you can use simple text like this
+        // emailIntent.putExtra(android.content.Intent.EXTRA_TEXT,"Body text here");
+        // or get fancy with HTML like this
+        emailIntent.putExtra(
+                Intent.EXTRA_TEXT,
+                Html.fromHtml(body)
+        );
+        context.startActivity(Intent.createChooser(emailIntent, "Email..."));*/
+
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/html");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{addresses});
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(body));
+        context.startActivity(Intent.createChooser(intent, "Email.."));
+        /*Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setType("text/html");
         intent.setData(Uri.parse("mailto:"+builderNumber)); // only email apps should handle this
         intent.putExtra(Intent.EXTRA_EMAIL, addresses);
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
@@ -294,6 +336,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
         intent.putExtra(Intent.EXTRA_TEXT,Html.fromHtml(body).toString());
         if (intent.resolveActivity(context.getPackageManager()) != null) {
             context.startActivity(Intent.createChooser(intent,"Email"));
-        }
+        }*/
     }
 }

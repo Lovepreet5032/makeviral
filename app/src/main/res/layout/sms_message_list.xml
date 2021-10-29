@@ -125,24 +125,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:orientation="horizontal">
-
                 <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/radio_sms_campaigns"
+                    android:id="@+id/radio_sms_templates"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_sendsms"
                     android:checked="true"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="8dp"
-                    android:text="@string/sms_campigns"/>
+                    android:text="@string/sms_templates"/>
                 <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/radio_sms_templates"
+                    android:id="@+id/radio_sms_campaigns"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_sendsms"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="8dp"
-                    android:text="@string/sms_templates"/>
+                    android:text="@string/sms_campigns"/>
+                <androidx.appcompat.widget.AppCompatRadioButton
+                    android:id="@+id/radio_email_templates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_sendsms"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/email_templates"/>
                 <androidx.appcompat.widget.AppCompatRadioButton
                     android:id="@+id/radio_email_campaigns"
                     android:layout_width="wrap_content"
@@ -152,14 +159,7 @@
                     android:layout_marginLeft="8dp"
                     android:text="@string/email_campigns"/>
 
-                <androidx.appcompat.widget.AppCompatRadioButton
-                    android:id="@+id/radio_email_templates"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/text_sendsms"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="8dp"
-                    android:text="@string/email_templates"/>
+
 
 
             </RadioGroup>
@@ -224,12 +224,15 @@
             android:background="#99ffffff"
             android:layout_margin="15dp"
             android:layout_below="@+id/spinner_category">
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/sms_recyler"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerHorizontal="true"
-                android:background="#99ffffff" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/sms_recyler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:background="#99ffffff" />
+
+
         </ScrollView>
     </LinearLayout>
     <View
