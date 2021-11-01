@@ -12,6 +12,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.provider.Telephony;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -165,6 +166,7 @@ public class GHomeActivity extends AppCompatActivity {
     private String hash;
     String mPhoneNumber = "";
     String deviceEmailId = "";
+    String mPhoneIMEI="";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -670,6 +672,39 @@ public class GHomeActivity extends AppCompatActivity {
 
          }
      }*/
+
+    public String getIMEIDeviceId(Context context) {
+
+        String deviceId;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+        {
+            deviceId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        } else {
+            final TelephonyManager mTelephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (context.checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                    return "";
+                }
+            }
+            assert mTelephony != null;
+            if (mTelephony.getDeviceId() != null)
+            {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                {
+                    deviceId = mTelephony.getImei();
+                }else {
+                    deviceId = mTelephony.getDeviceId();
+                }
+            } else {
+                deviceId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+            }
+        }
+        Log.d("deviceId", deviceId);
+        mPhoneIMEI=deviceId;
+        return deviceId;
+
+    }
     private String getDeviceImei() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{Manifest.permission.GET_ACCOUNTS}, PERMISSIONS_REQUEST_GETACCOUNT);
@@ -787,13 +822,13 @@ public class GHomeActivity extends AppCompatActivity {
                     Map<String, String> params = new HashMap<>();
                     SharedPreferences sharedPreferences = GHomeActivity.this.getSharedPreferences("MyPref", 0);
 
-                    String uproID = sharedPreferences.getString(PrefrencesConstant.uproid, null);
+                    String uproID = sharedPreferences.getString(PrefrencesConstant.uproid, "");
                     params.put("upro_id", uproID);
-                    params.put("hash", sharedPreferences.getString(PrefrencesConstant.hash, null));
+                    params.put("hash", sharedPreferences.getString(PrefrencesConstant.hash, ""));
                     params.put("device", "a");
-                    params.put("imei", getDeviceImei());
-                    params.put("email", "");
-                    params.put("phone", mPhoneNumber);
+                    params.put("imei",getIMEIDeviceId(GHomeActivity.this)==null?"":mPhoneIMEI);
+                    params.put("email", deviceEmailId);
+                    params.put("phone", mPhoneNumber==null?"":mPhoneNumber);
                     params.put("reg_id", regId);//sessionManager.getGCMToken());
                     return params;
                 }
